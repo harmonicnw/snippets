@@ -24,6 +24,6 @@ $(".myContainerObj").hmcRss( options );
 ## To do
 
 * option for default image
-* allow custom display HTML option like: layout: "<article><a href="&#37;link&#37;">&#37;img&#37;</a></article>"
+* allow custom display HTML option like: layout: "&lt;article&gt;&lt;a href="&#37;link&#37;"&gt;&#37;img&#37;&lt;/a&gt;&lt;/article&gt;"
 * minimum image size option for images found in RSS content
 * better documentation here
