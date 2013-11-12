@@ -1,4 +1,1 @@
-snippets
-========
-
-Harmonic Northwest Code Snippets and Plugins
+# Harmonic Northwest Code Snippets and Plugins
