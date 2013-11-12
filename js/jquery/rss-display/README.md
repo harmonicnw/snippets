@@ -1,5 +1,5 @@
 # Harmonic RSS Display jQuery plugin
-### Version: 1.0.0
+### Version: 1.0.1
 	
 ## Dependencies
 

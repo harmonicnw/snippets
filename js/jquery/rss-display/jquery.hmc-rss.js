@@ -2,12 +2,23 @@
 
 	/*
 	Harmonic RSS Display jQuery plugin
-	Version: 1.0.0
+	Version: 1.0.1
 	
-	To do:
-	 - option for default image
-	 - allow custom display HTML option like: layout: "<article><a href="%link%">%img%</a></article>"
-	 - minimum image size option for images found in RSS content
+	Download and read documentation at: https://github.com/harmonicnw/snippets/tree/master/js/jquery/rss-display
+	
+	Usage:
+	$(".myContainerObj").hmcRss( options );
+	
+	Options:
+	{
+		feeds : ( required | array ) feeds to load
+		images : ( optional | array | default = [] ) image urls that correspond with feeds
+		entries : ( optional | integer | default = 8 ) number of feed entries to display
+		forceUseImages : ( optional | boolean | default = false ) use image array from images rather than image found in feed entry
+		teaserLength : ( optional | boolean | default = 90 ) # of characters at which teaser truncates
+		titleLength : ( optional | boolean | default = 50 ) # of characters at which title truncates
+		maxEntriesPerSource : ( optional | integer | default = 0.33 * entries ) max # of entries from a single feed source
+	}
 	*/
 	
 	var googleFeedsLoaded = false;
@@ -15,18 +26,6 @@
 	google.setOnLoadCallback( function() {
 		googleFeedsLoaded = true;
 	});
-	
-	/*
-	Options: {
-		feeds : [required] (array) feeds to load
-		images : [optional] (array) image urls that correspond with feeds
-		entries : [optional] (integer, default = 8) number of feed entries to display
-		forceUseImages : [optional] (boolean, default = false) use image array from images rather than image found in feed entry
-		teaserLength : [optional] (boolean, default = 90) # of characters at which teaser truncates
-		titleLength : [optional] (boolean, default = 50) # of characters at which title truncates
-		maxEntriesPerSource : [optional] (integer, default = 0.33 * entries) max # of entries from a single feed source
-	}
-	*/
 	
 	$.fn.hmcRss = function( optionsPassed ) {
 		var container = $(this);
@@ -62,19 +61,12 @@
 			feedLoadObjs[i].setNumEntries(options.maxEntriesPerSource);
 			feedLoadObjs[i].load( addEntries );
 		}
-		console.log("feedLoadObjs = "); console.dir(feedLoadObjs);
 		
 		var feedsAdded = 0; // create variable to check when all feed srouces have been loaded
 		
 		function addEntries(result) {
-			//console.log('addFeed');
-			console.log("result = "); console.dir(result);
 			if (!result.error) {
-				for (var i = 0; i < result.feed.entries.length; i++) {
-					
-					//console.log("result = "); console.dir(result);
-					//console.log('addEntries');
-					
+				for (var i = 0; i < result.feed.entries.length; i++) {					
 					feedEntries.push(result.feed.entries[i]);
 					var thisEntry = feedEntries[(feedEntries.length - 1)];
 					
