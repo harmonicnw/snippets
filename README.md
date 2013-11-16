@@ -1,6 +1,6 @@
 # Harmonic Northwest Code Snippets and Plugins
 
-## Listing
+## Table of Contents
 
 ### JavaScript
 
