@@ -44,10 +44,11 @@
 			if ( options.mailto ) {
 				$(this).attr('href', 'mailto:' + email);	
 			}
+			
 			if ( options.text ) {
 				$(this).html( options.text );	// if text option is set, set to text
 			} else if ( $(this).text() == "" ) {
-				$(this).html( options.email );	// if DOM object is empty, set to email
+				$(this).text( email );	// if DOM object is empty, set to email
 			}	// else don't touch.
 		});
 	}
