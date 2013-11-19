@@ -2,15 +2,12 @@
 
 	/*
 	Harmonic Obscure Email jQuery plugin
-	Version: 1.0.0
-	
-	Dependencies:
-	 - jQuery (optimized for 10.2)
+	Version: 1.1.0
 	
 	Options:
 	{
 		emailArray : ( required | array ) series of strings that compromise email address in reverse order
-		text : ( optional | string or boolean | default = email address ) if set as a string, text to display within element. if set as boolean, true = set to email address, false = do not modify text in object
+		text : ( optional | string | default = false, email if innerHTML is empty, otherwise keep innerHTML ) link text
 		mailto : ( optional | boolean | default = true ) if true, add mailto link to object href property
 	}
 	
@@ -34,7 +31,7 @@
 		// set initial parameters
 		var options = {
 			mailto: true,
-			text: true
+			text: false
 		}
 		
 		$.extend( options, optionsPassed );
@@ -42,22 +39,18 @@
 		var emailArray = options.emailArray.reverse();
 		var email = emailArray.join('');
 		
-		// set display text to email address if options.text == true (default)
-		if ( options.text === true ) {
-			options.text = email;
-		}
-		
 		// add mailto links and link text
 		$(this).each( function() {
 			if ( options.mailto ) {
 				$(this).attr('href', 'mailto:' + email);	
 			}
 			if ( options.text ) {
-				$(this).html( options.text );	
-			}
+				$(this).html( options.text );	// if text option is set, set to text
+			} else if ( $(this).text() == "" ) {
+				$(this).html( options.email );	// if DOM object is empty, set to email
+			}	// else don't touch.
 		});
 	}
-
-
+	
 }( jQuery ));
 
