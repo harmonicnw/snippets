@@ -2,13 +2,14 @@
 
 	/*
 	Harmonic Obscure Email jQuery plugin
-	Version: 1.1.0
+	Version: 1.2.0
 	
 	Options:
 	{
 		emailArray : ( required | array ) series of strings that compromise email address in reverse order
 		text : ( optional | string | default = false, email if innerHTML is empty, otherwise keep innerHTML ) link text
-		mailto : ( optional | boolean | default = true ) if true, add mailto link to object href property
+		linkType : ( optional | "mailto" or "onclick" or "none" | default = "mailto" ) mailto sets link as mailto, onclick sets as a javascript onclick, anything else does not add a link
+		textObj : (optional | jQuery collection | default = $(this) ) if set, applies text string to an object within the link object
 	}
 	
 	Usage:
@@ -30,25 +31,38 @@
 
 		// set initial parameters
 		var options = {
-			mailto: true,
-			text: false
+			linkType: "mailto",
+			text: false,
+			textObj: $()
 		}
 		
 		$.extend( options, optionsPassed );
 		
+		// create email string
 		var emailArray = options.emailArray.reverse();
 		var email = emailArray.join('');
 		
+		// select textObj if not set
+		if ( options.textObj.length == 0 ) {
+			options.textObj = targets;
+		}
+		
 		// add mailto links and link text
 		$(this).each( function() {
-			if ( options.mailto ) {
+			if ( options.linkType == "mailto" ) {
 				$(this).attr('href', 'mailto:' + email);	
+			} else if ( options.linkType == "onclick" ) {
+				$(this).click( function(e) {
+					window.location = 'mailto:' + email;
+					e.preventDefault();
+					$(this).blur();
+				});
 			}
 			
 			if ( options.text ) {
-				$(this).html( options.text );	// if text option is set, set to text
-			} else if ( $(this).text() == "" ) {
-				$(this).text( email );	// if DOM object is empty, set to email
+				options.textObj.html( options.text );	// if text option is set, set to text
+			} else if ( options.textObj.text() == "" ) {
+				options.textObj.text( email );	// if DOM object is empty, set to email
 			}	// else don't touch.
 		});
 	}
