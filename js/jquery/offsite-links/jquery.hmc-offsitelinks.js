@@ -2,7 +2,7 @@
 
 	/*
 	Harmonic Offsite Links jQuery plugin
-	Version: 1.0.0
+	Version: 1.0.1
 	
 	Dependencies:
 	 - jQuery (optimized for 10.2)
@@ -30,13 +30,15 @@
 		
 		$.extend( options, optionsPassed );
 		
-		$("a").each( function() {
+		$(this).find("a").each( function() {
 			var myhref = $(this).attr("href");
-			if( myhref.indexOf( "http://" ) != -1 && myhref.indexOf( options.site ) == -1 ) {
+			if( (myhref.indexOf( "http://" ) != -1 || myhref.indexOf( "https://" ) != -1) && myhref.indexOf( options.site ) == -1 ) {
 				$(this).attr("target", "_blank");
 			}
 		});
-	}
+		
+		return $(this)
+	} 
 
 }( jQuery ));
 
