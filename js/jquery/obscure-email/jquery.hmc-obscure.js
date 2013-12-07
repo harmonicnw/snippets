@@ -2,7 +2,7 @@
 
 	/*
 	Harmonic Obscure Email jQuery plugin
-	Version: 1.2.0
+	Version: 1.2.1
 	
 	Options:
 	{
@@ -61,11 +61,11 @@
 			
 			if ( options.text ) {
 				options.textObj.html( options.text );	// if text option is set, set to text
-			} else if ( options.textObj.text() == "" ) {
+			} else if ( options.textObj.html() == "" ) {
 				options.textObj.text( email );	// if DOM object is empty, set to email
 			}	// else don't touch.
 		});
 	}
-	
+		
 }( jQuery ));
 
