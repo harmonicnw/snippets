@@ -2,7 +2,7 @@
 
 	/*
 	Harmonic RSS Display jQuery plugin
-	Version: 1.0.1
+	Version: 1.0.2
 	
 	Download and read documentation at: https://github.com/harmonicnw/snippets/tree/master/js/jquery/rss-display
 	
@@ -31,7 +31,7 @@
 		var container = $(this);
 		
 		// make sure google feeds scripts have loaded
-		if ( googleFeedsLoaded ) {
+		if ( !googleFeedsLoaded ) {
 			setTimeout( function() {
 				container.hmcRss( optionsPassed );
 				return;
@@ -51,11 +51,11 @@
 			'titleLength' : 50
 		}
 		
-		$.extend( options, optionsPassed );
-		
 		// set maxEntriesPerSource
 		options.maxEntriesPerSource = Math.round( options.entries * 0.33 );
 		
+		$.extend( options, optionsPassed );
+
 		for (var i = 0; i < options.feeds.length; i++) {
 			feedLoadObjs[i] = new google.feeds.Feed( options.feeds[i] );
 			feedLoadObjs[i].setNumEntries(options.maxEntriesPerSource);
