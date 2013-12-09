@@ -1,12 +1,19 @@
 # Harmonic RSS Display jQuery plugin
-### Version: 1.0.1
+### Version: 1.0.3
 	
 ## Dependencies
 
-* jQuery (optimized for 10.2)	
+* jQuery (optimized for 10.2)
+* Google JSON API	
 	
 ## Usage
 
+Embed JSON API on your page
+```
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+```
+
+Then run script:
 ```
 $(".myContainerObj").hmcRss( options );
 ```

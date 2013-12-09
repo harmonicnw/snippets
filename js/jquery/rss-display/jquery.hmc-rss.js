@@ -2,11 +2,19 @@
 
 	/*
 	Harmonic RSS Display jQuery plugin
-	Version: 1.0.2
+	Version: 1.0.3
 	
 	Download and read documentation at: https://github.com/harmonicnw/snippets/tree/master/js/jquery/rss-display
 	
+	Dependencies:
+	 - jQuery (optimized for 10.2)
+	 - Google JSON API
+	
 	Usage:
+	Include google JSON API on page before running script
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	
+	Then:
 	$(".myContainerObj").hmcRss( options );
 	
 	Options:
@@ -15,9 +23,10 @@
 		images : ( optional | array | default = [] ) image urls that correspond with feeds
 		entries : ( optional | integer | default = 8 ) number of feed entries to display
 		forceUseImages : ( optional | boolean | default = false ) use image array from images rather than image found in feed entry
-		teaserLength : ( optional | boolean | default = 90 ) # of characters at which teaser truncates
-		titleLength : ( optional | boolean | default = 50 ) # of characters at which title truncates
+		teaserLength : ( optional | integer | default = 90 ) # of characters at which teaser truncates
+		titleLength : ( optional | integer | default = 50 ) # of characters at which title truncates
 		maxEntriesPerSource : ( optional | integer | default = 0.33 * entries ) max # of entries from a single feed source
+		filterImagesFrom : ( optional | array | default = a few feed host urls ) an array of urls to exclude from image sources. adds to default list rather than replacing it.
 	}
 	*/
 	
@@ -41,6 +50,10 @@
 	
 		var feedLoadObjs = []; // holds google feed obj
 		var feedEntries = []; // holds loaded feed data (JSON)
+		var filterImagesFromDefault = [
+			"feeds.feedburner.com",
+			"feedsportal.com"
+		];
 
 		// set option defaults
 		var options = {
@@ -48,14 +61,18 @@
 			'images' : [],
 			'forceUseImages' : false,
 			'teaserLength' : 90,
-			'titleLength' : 50
+			'titleLength' : 50,
+			'filterImagesFrom' : []
 		}
 		
 		// set maxEntriesPerSource
 		options.maxEntriesPerSource = Math.round( options.entries * 0.33 );
 		
 		$.extend( options, optionsPassed );
-
+		
+		// merge in filterImagesFrom array
+		options.filterImagesFrom = options.filterImagesFrom.concat( filterImagesFromDefault ).unique();
+		
 		for (var i = 0; i < options.feeds.length; i++) {
 			feedLoadObjs[i] = new google.feeds.Feed( options.feeds[i] );
 			feedLoadObjs[i].setNumEntries(options.maxEntriesPerSource);
@@ -65,6 +82,7 @@
 		var feedsAdded = 0; // create variable to check when all feed srouces have been loaded
 		
 		function addEntries(result) {
+		
 			if (!result.error) {
 				for (var i = 0; i < result.feed.entries.length; i++) {					
 					feedEntries.push(result.feed.entries[i]);
@@ -72,6 +90,7 @@
 					
 					thisEntry.feedTitle = result.feed.title;
 					thisEntry.feedUrl = result.feed.feedUrl;
+					thisEntry.feedLink = result.feed.link;
 					thisEntry.truncatedContent = thisEntry.contentSnippet.trunc(90,true);
 					thisEntry.truncatedTitle = thisEntry.title.trunc(52,true);
 					
@@ -91,7 +110,7 @@
 		function getImageUrl( thisEntry, options ) {
 			var feedImageUrl = false;
 		
-			// match up feed image by matching up current feed URL with present one (complicated due to async loading)
+			// match up feed image in options by matching up current feed URL with present one (complicated due to async loading)
 			for ( var i = 0; i <= options.images.length; i++) {
 				if ( options.feeds[i] == thisEntry.feedUrl && options.images[i] !== null && options.images[i] !== false ) {
 					feedImageUrl = options.images[i];
@@ -110,18 +129,45 @@
 			
 			// if image found in content, return first one, otherwise return feed image, otherwise return nada
 			if ( contentImgObjs.length > 0 ) {
-				return contentImgObjs.first().prop("src");
-			} else {
-				return feedImageUrl;
+				
+				var imgSrc = false;
+				
+				// filter out urls on the no-fly list
+				for ( var i = 0; i < contentImgObjs.length; i++ ) {
+					var filtered = false;
+					
+					if (!imgSrc) {
+						for ( var j = 0; j < options.filterImagesFrom.length; j++ ) {
+							if ( contentImgObjs.eq(i).prop("src").indexOf( options.filterImagesFrom[j] ) != -1 ) {
+								filtered = true;
+							}
+						}					
+						if (!filtered) {
+							imgSrc = contentImgObjs.eq(i).prop("src");
+						}
+					}
+				}
+				
+				// if we have a viable image..
+				if (imgSrc) {				
+					// test to see if src is relative (jQuery will add your site's domain to the base url if so)
+					// replace this with the article site location
+					var mySiteLoc = document.location.protocol + "//" + document.location.host;
+					if ( imgSrc.indexOf( mySiteLoc ) != -1 ) {
+						imgSrc = imgSrc.replace( mySiteLoc, thisEntry.feedLink );
+					}
+				
+					return imgSrc;
+				}
+			
 			}
+			
+			return feedImageUrl;
 			
 		}
 		
 		var linkObjArr = [];
 		function displayFeeds( feedEntries ) {
-		
-			console.log("feedEntries = "); console.dir(feedEntries);
-			
 			feedEntries.sort(function(a,b) {
 				var dateA = new Date( a['publishedDate'] );
 				var dateB = new Date( b['publishedDate'] );
@@ -171,6 +217,20 @@
 		var toLong = this.length > n, s_ = toLong ? this.substr(0, n-1) : this;
 		s_ = useWordBoundary && toLong ? s_.substr(0, s_.lastIndexOf(' ')) : s_;
 		return  toLong ? s_ + '&hellip;' : s_;
+	};
+	
+	// remove duplicates from array
+	// from http://stackoverflow.com/questions/1584370/how-to-merge-two-arrays-in-javascript
+	Array.prototype.unique = function() {
+	    var a = this.concat();
+	    for(var i=0; i<a.length; ++i) {
+	        for(var j=i+1; j<a.length; ++j) {
+	            if(a[i] === a[j])
+	                a.splice(j--, 1);
+	        }
+	    }
+	
+	    return a;
 	};
 
 }( jQuery ));
