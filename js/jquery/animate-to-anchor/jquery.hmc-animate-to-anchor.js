@@ -2,7 +2,7 @@
 
 	/*
 	Harmonic Animate to Anchor jQuery pluggin 
-	Version: 1.0.0
+	Version: 1.0.1
 	
 	Options:
 	{
@@ -12,13 +12,13 @@
 	
 	Usage:
 
-	$("nav").initAnimatedJumps( {bufferTop : 40} );
+	$("nav").hmcAnimateToAnchor( {bufferTop : 40} );
 	
 	To do:
 	*/
 	
 	// initialize animated scroll to in-page anchor link
-	$.fn.initAnimatedJumps = function( optionsPassed ) {
+	$.fn.hmcAnimateToAnchor = function( optionsPassed ) {
 		
 		// set initial parameters
 		var options = {

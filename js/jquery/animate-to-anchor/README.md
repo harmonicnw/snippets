@@ -8,7 +8,7 @@
 ## Usage
 
 ```
-$("nav").initAnimatedJumps( {bufferTop : 40} );
+$("nav").hmcAnimateToAnchor( {bufferTop : 40} );
 
 ```
 
