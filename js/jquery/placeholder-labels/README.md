@@ -1,4 +1,4 @@
-# Harmonic Offsite Links jQuery plugin
+# Harmonic Placeholder Labels jQuery pluggin
 ### Version: 1.0.0
 	
 ## Dependencies
