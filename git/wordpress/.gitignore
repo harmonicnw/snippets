@@ -4,10 +4,13 @@
 # pc
 Thumbs.db
 
-#git
+# git
 .gitconfig
 
-### WordPress ###
+# server
+error_log
+
+# WordPress
 .htaccess
 wp-content/uploads/
 wp-content/blogs.dir/
