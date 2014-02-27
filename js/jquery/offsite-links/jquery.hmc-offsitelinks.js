@@ -2,7 +2,7 @@
 
 	/*
 	Harmonic Offsite Links jQuery plugin
-	Version: 1.0.1
+	Version: 1.0.2
 	
 	Dependencies:
 	 - jQuery (optimized for 10.2)
