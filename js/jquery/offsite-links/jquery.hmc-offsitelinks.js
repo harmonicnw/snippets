@@ -32,7 +32,7 @@
 		
 		$(this).find("a").each( function() {
 			var myhref = $(this).attr("href");
-			if( (myhref.indexOf( "http://" ) != -1 || myhref.indexOf( "https://" ) != -1) && myhref.indexOf( options.site ) == -1 ) {
+			if( myhref && ( (myhref.indexOf( "http://" ) != -1 || myhref.indexOf( "https://" ) != -1) && myhref.indexOf( options.site ) == -1 ) ) {
 				$(this).attr("target", "_blank");
 			}
 		});
