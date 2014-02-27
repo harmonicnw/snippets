@@ -1,7 +1,7 @@
 (function ( $ ) {
 	/*
 	Harmonic Remove Telephone Links jQuery plugin
-	Version: 1.0.1
+	Version: 1.0.2
 	
 	Dependencies:
 	 - jQuery (optimized for 10.2)
@@ -29,8 +29,8 @@
 		
 		if($(window).width()>options.breakpoint){
 			$(this).find("a").each(function(){
-				var href=$(this).attr("href");
-				if(href.indexOf("tel:")!=-1){
+				var href = $(this).attr("href");
+				if( href && href.indexOf("tel:") !=-1 ) {
 					$(this).contents().unwrap();	
 				}	
 			});
