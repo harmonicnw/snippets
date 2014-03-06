@@ -8,13 +8,14 @@
 ## Usage
 
 ```
-$('.parallax').hmcParallax({scRate: 0.5});
+$('.parallax').hmcParallax({scRate: 0.5, minWidth: 900});
 	
 ```
 
 ### Options	
 
-* **scRate** : *( optional | integer | default = 0.3 ) identifies the scroll rate for the parallaxed background image, must be an integer between 0 and 1.
+* **scRate** : ( optional | integer | default = 0.3 ) identifies the scroll rate for the parallaxed background image, must be an integer between 0 and 1.
+* **minWidth** : ( optional | integer | default = 768 ) identifies the minimum screen width required for the parallax to operate.
 
 ## To do
 

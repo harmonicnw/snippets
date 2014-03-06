@@ -12,7 +12,7 @@
 	
 	Usage:
 
-	$('.parallax').hmcParallax({scRate: 0.5});
+	$('.parallax').hmcParallax({scRate: 0.5, minWidth: 900});
 	
 	Notes: 
 	
