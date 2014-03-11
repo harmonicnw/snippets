@@ -1,8 +1,9 @@
 (function ( $ ) {
 
 	/*
-	Harmonic Paginate Table plugin
+	Harmonic Paginate Table jQuery Plugin
 	Version: 1.0.0
+	https://github.com/harmonicnw/snippets/tree/master/js/jquery/paginate-table
 	
 	Options:
 	{

@@ -1,8 +1,9 @@
 (function ( $ ) {
 
 	/*
-	Harmonic Animate to Anchor jQuery pluggin 
+	Harmonic Animate to Anchor jQuery Plugin 
 	Version: 1.0.2
+	https://github.com/harmonicnw/snippets/tree/master/js/jquery/animate-to-anchor
 	
 	Options:
 	{
