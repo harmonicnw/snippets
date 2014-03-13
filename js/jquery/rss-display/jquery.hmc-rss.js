@@ -1,7 +1,7 @@
 (function ( $ ) {
 
 	/*
-	Harmonic RSS Display jQuery plugin
+	Harmonic RSS Display jQuery Plugin
 	Version: 1.0.3
 	
 	Download and read documentation at: https://github.com/harmonicnw/snippets/tree/master/js/jquery/rss-display

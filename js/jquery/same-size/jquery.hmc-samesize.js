@@ -1,8 +1,9 @@
 (function ( $ ) {
 
 	/*
-	Harmonic Same Sizer jQuery plugin
-	Version: 1.0.1
+	Harmonic Same Sizer jQuery Plugin
+	Version: 1.0.0
+	https://github.com/harmonicnw/snippets/tree/master/js/jquery/same-size
 	
 	Options:
 	{
@@ -44,8 +45,8 @@
 	$.fn.hmcSSGo = function( options ) {
 		$(this).css('min-height','').css('min-width','');
 		// if window is within min/max width, resize objects, otherwise set to auto
-		if ( window.outerWidth >= options.windowMinWidth && window.outerWidth < options.windowMaxWidth ) {
-			console.log("You resized the screen!!");
+		if ( $(window).width() >= options.windowMinWidth && $(window).width() < options.windowMaxWidth ) {
+			
 			var biggestHeight = 0;
 			var biggestWidth = 0;
 			

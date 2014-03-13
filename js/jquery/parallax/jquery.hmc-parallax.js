@@ -1,8 +1,9 @@
 (function ( $ ) {
 
 	/*
-	Harmonic Background Parallax jQuery pluggin 
+	Harmonic Background Parallax jQuery Plugin 
 	Version: 1.0.1
+	https://github.com/harmonicnw/snippets/tree/master/js/jquery/parallax
 	
 	Options:
 	{

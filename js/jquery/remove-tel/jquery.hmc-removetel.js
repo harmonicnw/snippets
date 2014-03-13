@@ -1,7 +1,8 @@
 (function ( $ ) {
 	/*
-	Harmonic Remove Telephone Links jQuery plugin
+	Harmonic Remove Telephone Links jQuery Plugin
 	Version: 1.0.2
+	https://github.com/harmonicnw/snippets/tree/master/js/jquery/remove-tel
 	
 	Dependencies:
 	 - jQuery (optimized for 10.2)

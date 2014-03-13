@@ -1,8 +1,9 @@
 (function ( $ ) {
 
 	/*
-	Harmonic Placeholder Labels jQuery pluggin
+	Harmonic Placeholder Labels jQuery Plugin
 	Version: 1.0.0
+	https://github.com/harmonicnw/snippets/tree/master/js/jquery/fixed-bar
 	
 	Dependencies:
 	 - jQuery (optimized for 10.2)

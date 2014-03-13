@@ -1,8 +1,9 @@
 (function ( $ ) {
 
 	/*
-	Harmonic Obscure Email jQuery plugin
+	Harmonic Obscure Email jQuery Plugin
 	Version: 1.2.1
+	https://github.com/harmonicnw/snippets/tree/master/js/jquery/obscure-email
 	
 	Options:
 	{
