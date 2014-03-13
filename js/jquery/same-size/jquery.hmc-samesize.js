@@ -42,10 +42,10 @@
 	}
 	
 	$.fn.hmcSSGo = function( options ) {
-		
+		$(this).css('min-height','').css('min-width','');
 		// if window is within min/max width, resize objects, otherwise set to auto
 		if ( window.outerWidth >= options.windowMinWidth && window.outerWidth < options.windowMaxWidth ) {
-			
+			console.log("You resized the screen!!");
 			var biggestHeight = 0;
 			var biggestWidth = 0;
 			
@@ -61,19 +61,12 @@
 			
 			// set height and width of objects
 			if ( options.height ) {
-				$(this).height( biggestHeight );
+				$(this).css("min-height", biggestHeight + "px");
 			}
 			if ( options.width ) {
-				$(this).width( biggestWidth );
-			}
-			
-		} else {
-		
-			// remove possibly pre-set heights and widths
-			$(this).css('height','').css('width','');
-			
-		}
-		
+				$(this).width("min-width", biggestWidth + "px");
+			}	
+		}	
 	}
 
 }( jQuery ));
