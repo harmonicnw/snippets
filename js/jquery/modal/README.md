@@ -25,7 +25,6 @@ $('#modal1').hmcModal({
 * **overlay** : *( required | jQuery object | default = default )* set the screen overlay object that sits behind the modal window,
 * **openers** : *( option | jQuery object | default = false )* jQuery collection of DOM objects that when clicked open the modal,
 * **closers** : *( option | jQuery object | default = false )* jQuery collection of DOM objects that when clicked close the modal
-* **alwaysOn** : *( option | jQuery object | default = false )* jQuery collection of DOM objects that when clicked close the modal
 * **alwaysOn** : *( option | jQuery object | default = false )* if true, the modal will always be on
 * **breakpoint** : *( optional | number | default = false )* if set, the modal will switch to mobile mode (fullscreen) when screen width is below set value
 * **modalDelay** : *( optional | number | default = 0 )* number of milliseconds to delay loading modal (but not overlay)
