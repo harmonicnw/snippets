@@ -44,7 +44,7 @@
 	$.fn.hmcSSGo = function( options ) {
 		$(this).css('height','auto');
 		// if window is within min/max width, resize objects, otherwise set to auto
-		if ( $(window).width() >= options.windowMinWidth && $(window).width() < options.windowMaxWidth ) {
+		if ( $(window).get( 0 ).outerWidth >= options.windowMinWidth && $(window).get( 0 ).outerWidth < options.windowMaxWidth ) {
 			
 			var biggestHeight = 0;
 			var biggestWidth = 0;

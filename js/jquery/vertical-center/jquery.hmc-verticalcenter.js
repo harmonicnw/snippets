@@ -22,6 +22,8 @@
 	
 	$.fn.hmcVerticalCenter = function(optionsPassed) {
 		
+		use strict;
+
 		var target = $(this);
 		
 		// set initial parameters
@@ -52,7 +54,7 @@
 						biggestHeight = $(this).height();
 					}
 				});
-			}
+			};
 			
 			$(this).each(function(){
 			
@@ -60,7 +62,7 @@
 				if ( !$(this).hasClass('hmcVC') ) {
 					$(this)
 					.addClass('hmcVC')
-					.wrapInner("<div class='hmcVC2' style='border-collapse:collapse;display:table;margin:0;padding:0;width:100%;'><div class='hmcVC3' style='display:table-cell;vertical-align:middle;'></div></div>");
+					.wrapInner('<div class="hmcVC2" style="border-collapse:collapse;display:table;margin:0;padding:0;width:100%;"><div class="hmcVC3" style="display:table-cell;vertical-align:middle;"></div></div>');
 				}
 				
 				// if sameHeight is true, set centering wrapper to biggest height, otherwise use container height
@@ -71,8 +73,8 @@
 			
 		} else {
 			// if below minimus width, remove formatting
-			$(this).find(".hmcVC3").contents().unwrap().unwrap();
-		}
+			$(this).find('.hmcVC3').contents().unwrap().unwrap();
+		};
 		
 	}
 	
