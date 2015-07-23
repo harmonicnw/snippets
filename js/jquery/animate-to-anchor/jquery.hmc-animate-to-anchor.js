@@ -2,14 +2,16 @@
 
 	/*
 	Harmonic Animate to Anchor jQuery Plugin 
-	Version: 1.0.2
+	Version: 1.0.3
 	https://github.com/harmonicnw/snippets/tree/master/js/jquery/animate-to-anchor
 	
 	Options:
 	{
 		bufferTop : ( optional | integer | default = 0 ) identifies the top buffer for pages that have a sticky header. 
 		bufferTopMobile : (optional | integer | default = 0) sets the buffer for mobile devices.
-		breakpoint: (optional | integer | deafault = 768) sets the breakpoint for mobile devices (in pixels)
+		breakpoint: (optional | integer | deafault = 768) sets the breakpoint for mobile devices (in pixels),
+		delay: ( optional | number | default = 0 ) delay before animation begins
+		speed: ( optional | milliseconds | default = 1000 ) speed of animation
 
 	}
 	
@@ -27,7 +29,9 @@
 		var options = {
 			bufferTop : 0,
 			bufferTopMobile: 0,
-			breakpoint : 768, 
+			breakpoint : 768,
+			delay: 0,
+			speed: 1000
 		}
 
 		$.extend( options, optionsPassed );
@@ -46,9 +50,11 @@
 						var scrollTo = targetOffset.top + options.bufferTopMobile;
 					}
 
-					$('body,html').animate({
-						'scrollTop' : scrollTo + 'px'
-					}, 1000);
+					setTimeout( function() {
+						$('body,html').animate({
+							'scrollTop' : scrollTo + 'px'
+						}, options.speed);
+					}, options.delay );
 
 					e.preventDefault();
 					$(this).blur();
@@ -58,4 +64,3 @@
 	}
 	
 }( jQuery ));
-
