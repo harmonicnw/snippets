@@ -1,5 +1,5 @@
 # Harmonic Obscure Email jQuery plugin
-### Version: 1.1.0
+### Version: 1.2.2
 	
 ## Dependencies
 
@@ -19,9 +19,10 @@ $('a.email-link').hmcObscureEmail({
 
 ### Options	
 
-* **emailArray** : *( required | array )* series of strings that compromise email address in reverse order
-* **text** : *( optional | string or boolean | default = false, email if innerHTML is empty, otherwise keep innerHTML )* link text
-* **mailto** : *( optional | boolean | default = true )* if true, add mailto link to object href property
+* **emailArray** : *( required | array ) series of strings that compromise email address in reverse order
+* **text** : *( optional | string | default = false, email if innerHTML is empty, otherwise keep innerHTML ) link text
+* **linkType** : *( optional | "mailto" or "onclick" or "none" | default = "mailto" ) mailto sets link as mailto, onclick sets as a javascript onclick, anything else does not add a link
+* **textObj** : *(optional | jQuery collection | default = $(this) ) if set, applies text string to an object within the link object
 
 	
 ## To do

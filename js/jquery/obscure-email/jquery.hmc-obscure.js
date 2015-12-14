@@ -1,8 +1,10 @@
 (function ( $ ) {
 
+	'use strict';
+
 	/*
 	Harmonic Obscure Email jQuery Plugin
-	Version: 1.2.1
+	Version: 1.2.2
 	https://github.com/harmonicnw/snippets/tree/master/js/jquery/obscure-email
 	
 	Options:
@@ -32,10 +34,10 @@
 
 		// set initial parameters
 		var options = {
-			linkType: "mailto",
+			linkType: 'mailto',
 			text: false,
 			textObj: $()
-		}
+		};
 		
 		$.extend( options, optionsPassed );
 		
@@ -44,15 +46,15 @@
 		var email = emailArray.join('');
 		
 		// select textObj if not set
-		if ( options.textObj.length == 0 ) {
+		if ( options.textObj.length === 0 ) {
 			options.textObj = targets;
 		}
 		
 		// add mailto links and link text
 		$(this).each( function() {
-			if ( options.linkType == "mailto" ) {
+			if ( options.linkType === 'mailto' ) {
 				$(this).attr('href', 'mailto:' + email);	
-			} else if ( options.linkType == "onclick" ) {
+			} else if ( options.linkType === 'onclick' ) {
 				$(this).click( function(e) {
 					window.location = 'mailto:' + email;
 					e.preventDefault();
@@ -62,11 +64,11 @@
 			
 			if ( options.text ) {
 				options.textObj.html( options.text );	// if text option is set, set to text
-			} else if ( options.textObj.html() == "" ) {
+			} else if ( options.textObj.html() === '' ) {
 				options.textObj.text( email );	// if DOM object is empty, set to email
 			}	// else don't touch.
 		});
-	}
+	};
 		
 }( jQuery ));
 
