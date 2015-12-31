@@ -2,7 +2,7 @@
 
 	/*
 	Harmonic Same Sizer jQuery plugin
-	Version: 1.0.1
+	Version: 1.1
 	
 	Options:
 	{
@@ -51,20 +51,20 @@
 			
 			// cycle through objects to find biggest heights and widths
 			$(this).each( function() {
-				if ( $(this).height() > biggestHeight ) {
-					biggestHeight = $(this).height();
+				if ( $(this).outerHeight() > biggestHeight ) {
+					biggestHeight = $(this).outerHeight();
 				}
-				if ( $(this).width() > biggestWidth ) {
-					biggestWidth = $(this).width();
+				if ( $(this).outerWidth() > biggestWidth ) {
+					biggestWidth = $(this).outerWidth();
 				}
 			});
 			
 			// set height and width of objects
 			if ( options.height ) {
-				$(this).height( biggestHeight );
+				$(this).outerHeight( biggestHeight );
 			}
 			if ( options.width ) {
-				$(this).width( biggestWidth );
+				$(this).outerWidth( biggestWidth );
 			}
 			
 		} else {
