@@ -4,7 +4,7 @@
 
 	/*
 	Harmonic Cross Fader jQuery plugin
-	Version: 1.1
+	Version: 1.2
 	
 	Options:
 	{
@@ -64,15 +64,20 @@
 			var currSlide = slides.eq(currIndex);
 			var nextSlide = slides.eq(nextIndex);
 
+
+			// fade in next slide over current slide, then hide current slide
 			currSlide.css({
-				'z-index': 1
-			});
-			nextSlide.css({
 				'z-index': 0
 			});
-
-			currSlide.fadeOut();
-			nextSlide.fadeIn();
+			nextSlide.css({
+				'z-index': 1
+			});
+			nextSlide.fadeIn( function() {
+				currSlide.hide();
+				nextSlide.css({
+					'z-index': 0
+				})
+			});
 
 		}, options.delay);
 	};
