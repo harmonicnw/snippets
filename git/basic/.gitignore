@@ -1,4 +1,4 @@
-# OS
+# os
 .DS_Store
 .DS_Store?
 ._*
@@ -7,11 +7,17 @@
 ehthumbs.db
 Thumbs.db
 
-# Server
+# server
 *.log
 error_log
 log
 
-# WordMove
-/Movefile
-*-backup-*.sql
+# git
+.gitconfig
+README.md
+
+# grunt
+node_modules
+.tmp
+.sass-cache
+bower_components
