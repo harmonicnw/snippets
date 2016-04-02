@@ -22,10 +22,7 @@ production:
     host: "localhost"
 
   exclude:
-    - ".htaccess"
-    - ".git/"
-    - ".gitignore"
-    - ".sass-cache/"
+    - ".*"
     - "bin/"
     - "tmp/*"
     - "Gemfile*"
@@ -33,11 +30,14 @@ production:
     - "wp-config.php"
     - "wp-content/*.sql"
     - "error_log"
-    - "*.log"
     - "_dev_assets/"
     - "README.md"
-    - ".DS_Store"
-    - "node_modules/"
+    - "fgdist/assets/"
+    - "bower.json"
+    - "composer.json"
+    - "package.json"
+    - "ruleset.xml"
+    - "bower_components/"
 
   ssh:
     host: "http://www.[...].com/"
