@@ -38,6 +38,7 @@ production:
     - "package.json"
     - "ruleset.xml"
     - "bower_components/"
+    - "node_modules/"
 
   ssh:
     host: "http://www.[...].com/"
