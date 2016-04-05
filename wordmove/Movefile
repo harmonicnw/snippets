@@ -31,8 +31,8 @@ production:
     - "wp-content/*.sql"
     - "error_log"
     - "_dev_assets/"
-    - "README.md"
-    - "fgdist/assets/"
+    - "README.*"
+    - "license.*"
     - "bower.json"
     - "composer.json"
     - "package.json"
@@ -52,5 +52,3 @@ production:
   #   password: ""
   #   host: ""
   #   passive: true
-
-
