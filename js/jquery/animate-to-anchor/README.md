@@ -1,11 +1,11 @@
 # Harmonic Animate to Anchor jQuery plugin
-### Version: 1.0.3
+### Version: 1.0.4
 ### https://github.com/harmonicnw/snippets/tree/master/js/jquery/animate-to-anchor
-	
+
 ## Dependencies
 
-* jQuery (optimized for 10.2)	
-	
+* jQuery (optimized for 10.2)
+
 ## Usage
 
 ```
@@ -13,7 +13,7 @@ $("nav").hmcAnimateToAnchor( {bufferTop : -40, bufferTopMobile : -10, breakpoint
 
 ```
 
-### Options	
+### Options
 
 * **bufferTop** : *( optional | integer | default = 0 )* identifies the top buffer for pages that have a sticky header.
 * **bufferTopMobile** : *( optional | integer | default = 0 )* sets the buffer for mobile devices.
