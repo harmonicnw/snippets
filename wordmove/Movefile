@@ -23,12 +23,15 @@ production:
 
   exclude:
     - ".*"
+    - "*.gz"
+    - "*.zip"
+    - "php.ini"
     - "bin/"
     - "tmp/*"
     - "Gemfile*"
-    - "Movefile"
+    - "Movefile*"
     - "wp-config.php"
-    - "wp-content/*.sql"
+    - "wp-content/*.sql*"
     - "error_log"
     - "_dev_assets/"
     - "README.*"
@@ -39,6 +42,9 @@ production:
     - "ruleset.xml"
     - "bower_components/"
     - "node_modules/"
+    - "Gruntfile.js"
+    - "Gulpfile.js"
+    - "*.scss"
 
   ssh:
     host: "http://www.[...].com/"
