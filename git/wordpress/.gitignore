@@ -21,9 +21,10 @@ node_modules
 .sass-cache
 bower_components
 
-# wordmove
-/Movefile
-*-backup-*.sql
+# WordMove
+/Movefile*
+*-backup-*.sql*
+dump.sql*
 
 # WordPress
 .htaccess
