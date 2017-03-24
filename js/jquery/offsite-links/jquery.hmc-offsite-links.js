@@ -2,7 +2,7 @@
 
 	/*
 	Harmonic Offsite Links jQuery Plugin
-	Version: 1.0.3
+	Version: 1.0.4
 	https://github.com/harmonicnw/snippets/tree/master/js/jquery/offsite-links
 
 	Dependencies:

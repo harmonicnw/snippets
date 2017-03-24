@@ -1,5 +1,5 @@
 # Harmonic Offsite Links jQuery plugin
-### Version: 1.0.3
+### Version: 1.0.4
 
 ## Dependencies
 
@@ -9,8 +9,8 @@
 
 ```
 $('body').hmcOffsiteLinks({
-		site : "harmonicnw.com"
-	});
+	site : "harmonicnw.com"
+});
 ```
 
 ### Options
