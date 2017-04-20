@@ -1,5 +1,5 @@
 # Harmonic Offsite Links jQuery plugin
-### Version: 1.0.0
+### Version: 1.1.0
 
 ## Dependencies
 
@@ -14,7 +14,3 @@ $('body').hmcAddressLinks();
 ### Options
 
 * **[none]**
-
-## To do
-
-* Add device test to link to apple maps on iOS

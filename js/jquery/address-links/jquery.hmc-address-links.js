@@ -2,7 +2,7 @@
 
 	/*
 	Harmonic Address Links jQuery Plugin
-	Version: 1.0.0
+	Version: 1.1.0
 	https://github.com/harmonicnw/snippets/tree/master/js/jquery/offsite-links
 
 	Dependencies:
@@ -12,15 +12,19 @@
 
 	Usage:
 	$('body').hmcAddressLinks();
-
-	To do:
-	 - Add device test to link to apple maps on iOS
 	*/
 
 	$.fn.hmcAddressLinks = function() {
+		var baseUrl;
+		var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+		if (iOS) {
+			baseUrl = 'https://maps.apple.com/?q=';
+		} else {
+			baseUrl = 'https://maps.google.com/maps?q=';
+		}
 
 		$(this).find("address").each( function() {
-			$(this).wrapInner("<a href='http://maps.google.com/maps?q=" + encodeURIComponent( $(this).text() ) + "' target='_blank'></a>");
+			$(this).wrapInner("<a href='" + baseUrl + encodeURIComponent( $(this).text() ) + "' target='_blank'></a>");
 		});
 
 		return $(this);
