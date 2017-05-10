@@ -26,6 +26,9 @@ bower_components
 *-backup-*.sql*
 dump.sql*
 
+# Composer
+/composer.phar
+
 # WordPress
 .htaccess
 sitemap.xml
@@ -42,3 +45,5 @@ wp-content/upgrade/
 wp-content/uploads/
 wp-content/w3tc-config/
 wp-content/wp-cache-config.php
+wp-content/themes/**/node_modules
+wp-content/themes/**/bower_components
