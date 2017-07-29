@@ -15,8 +15,9 @@ log
 # git
 .gitconfig
 
-# grunt
+# gulp
 node_modules
+dist
 .tmp
-.sass-cache
 bower_components
+test/bower_components
