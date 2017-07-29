@@ -12,7 +12,7 @@
 @mixin container {
   @include first-last-no-margin;
   margin: 0 auto;
-  max-width: $spacer*4 + 824px;
+  max-width: $spacer*4 + $content-max-width;
   padding: $spacer*2 $spacer;
   width: 100%;
 
