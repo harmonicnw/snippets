@@ -1,0 +1,64 @@
+body {
+  color: $dark;
+  font-family: $font;
+  font-size: $font-size;
+  line-height: $line-height;
+  text-align: center;
+}
+
+a {
+  color: $primary;
+  text-decoration: none;
+  transition: $transition-all;
+
+  &:hover {
+    color: $primary-highlight;
+    text-decoration: none;
+  }
+
+  img {
+    border: none;
+  }
+}
+
+@include text-elements {
+  @include first-last-no-margin;
+  margin: $spacer*0.5 auto;
+  max-width: 620px;
+}
+
+blockquote {
+  font-size: 22px;
+  line-height: $line-height;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $heading-font;
+  font-weight: bold;
+  line-height: $heading-line-height;
+}
+
+h1 {
+  font-size: 32px;
+}
+h2 {
+  font-size: 28px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 22px;
+}
+h5 {
+  font-size: $font-size;
+  text-transform: uppercase;
+}
+h6 {
+  font-size: 16px;
+}

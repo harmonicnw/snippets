@@ -1,0 +1,52 @@
+footer {
+  position: relative;
+
+  .back-to-top {
+    display: none;
+    margin-top: $spacer;
+    text-align: center;
+
+    &.active {
+      display: block;
+    }
+  }
+
+  .container {
+    padding-top: 0;
+    padding-bottom: $spacer;
+  }
+
+  .hnw {
+    $hnw-height: 20px;
+    $hnw-width: 18px;
+
+    background-image: url('../images/harmonic-northwest.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: $hnw-width $hnw-height;
+    bottom: $hnw-width;
+    display: inline-block;
+    font-size: 0.01em;
+    height: $hnw-height;
+    line-height: 0.01em;
+    opacity: 0.25;
+    position: absolute;
+    right: $hnw-width;
+    text-indent: -9999px;
+    transition: all 1000ms ease;
+    width: $hnw-width;
+
+    &:hover {
+      opacity: 1;
+      transform: scale(1.12);
+    }
+  }
+
+  @media only screen and (min-width:$large-tablet) {
+    .back-to-top {
+      &.active {
+        display: none;
+      }
+    }
+  }
+}
