@@ -40,28 +40,6 @@ input[type='radio'] {
   margin-right: $spacer*0.25;
 }
 
-input[type='submit'],
-button,
-.btn {
-  background-color: $dark;
-  border: none;
-  border-radius: 0;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  font-family: $font;
-  font-size: $font-size;
-  padding: 0.5em 0.8em 0.6em;
-  width: auto;
-  -webkit-appearance: none;
-  transition: $transition-all;
-
-  &:hover {
-    //background-color: darken($black, 10%);
-    text-decoration: none;
-  }
-}
-
 label {
   @include first-last-no-margin;
   display: block;

@@ -23,8 +23,7 @@ a {
 
 @include text-elements {
   @include first-last-no-margin;
-  margin: $spacer*0.5 auto;
-  max-width: 620px;
+  margin: $spacer*0.25 auto;
 }
 
 blockquote {
@@ -32,33 +31,69 @@ blockquote {
   line-height: $line-height;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: $heading-font;
-  font-weight: bold;
+@mixin heading {
+  font-weight: normal;
   line-height: $heading-line-height;
+  // -webkit-font-smoothing: antialiased;
 }
 
-h1 {
-  font-size: 32px;
+@mixin h1 {
+  @include heading;
+  font-size: 29px;
+  text-transform: uppercase;
+
+  @media only screen and (min-width:$tablet) {
+    font-size: 34px;
+  }
 }
-h2 {
-  font-size: 28px;
+
+@mixin h2 {
+  @include heading;
+  font-size: 23px;
+  text-transform: uppercase;
+
+  @media only screen and (min-width:$tablet) {
+    font-size: 25px;
+  }
 }
-h3 {
-  font-size: 24px;
+
+@mixin h3 {
+  @include heading;
+  font-size: 22px;
+  text-transform: uppercase;
 }
-h4 {
+
+@mixin h4 {
+  @include heading;
   font-size: 22px;
 }
-h5 {
+
+@mixin h5 {
+  @include heading;
   font-size: $font-size;
   text-transform: uppercase;
 }
-h6 {
+
+@mixin h6 {
+  @include heading;
   font-size: 16px;
+}
+
+h1 {
+  @include h1;
+}
+h2 {
+  @include h2;
+}
+h3 {
+  @include h3;
+}
+h4 {
+  @include h4;
+}
+h5 {
+  @include h5;
+}
+h6 {
+  @include h6;
 }

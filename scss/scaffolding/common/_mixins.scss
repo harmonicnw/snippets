@@ -10,7 +10,6 @@
 
 // apply global container styles
 @mixin container {
-  @include first-last-no-margin;
   margin: 0 auto;
   max-width: $spacer*4 + $content-max-width;
   padding: $spacer*2 $spacer;
