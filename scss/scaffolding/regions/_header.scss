@@ -53,7 +53,7 @@ header {
           text-decoration: none;
 
           &::after {
-            background-color: $light-gray;
+            background-color: $primary;
             bottom: 0;
             content: "";
             height: 3px;
@@ -83,7 +83,7 @@ header {
   .brand {
     display: inline-block;
     font-size: 0.01em;
-    height: $logo-height*0.67;
+    height: $spacer*2;
     line-height: 0.01em;
     width: auto;
 
@@ -97,7 +97,7 @@ header {
     align-items: center;
     display: flex;
     flex-flow: row nowrap;
-    height: $header-container-height-small;
+    height: $spacer*4;
     justify-content: space-between;
     padding-top: 0;
     padding-bottom: 0;
@@ -105,13 +105,13 @@ header {
 
   @media only screen and (min-width:$handset) {
     .container {
-      height: $header-container-height;
+      height: $spacer*6;
     }
   };
 
   @media only screen and (min-width:$large-tablet) {
     .brand {
-      height: $logo-height;
+      height: $spacer*3;
     }
 
     nav.mobile {
