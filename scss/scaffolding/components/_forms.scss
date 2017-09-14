@@ -1,14 +1,21 @@
+@mixin text-input-elements {
+  input[type='text'],
+  input[type='email'],
+  input[type='password'],
+  input[type='phone'],
+  input[type='tel'],
+  textarea {
+    @content;
+  }
+}
+
 form {
   @include first-last-no-margin;
   margin: $spacer 0;
   text-align: left;
 }
 
-input[type='text'],
-input[type='email'],
-input[type='password'],
-input[type='tel'],
-textarea {
+@include text-input-elements {
   border: 1px solid $gray;
   border-radius: 0;
   color: $dark;
@@ -23,10 +30,10 @@ textarea {
   }
 }
 
-input[type='text'],
-input[type='email'],
-input[type='password'] {
-  height: 2.5em;
+@include text-input-elements {
+  &:not(textarea) {
+    height: 2.5em;
+  }
 }
 
 textarea {

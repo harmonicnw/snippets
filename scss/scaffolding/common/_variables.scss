@@ -9,7 +9,7 @@ $large: 1200px;
 $dark: #333;
 $gray: #bbb;
 $primary: red;
-$primary-highlight: lighten(red, 10%);
+$primary-highlight: lighten($primary, 10%);
 
 // fonts
 $font: "lucida grande", tahoma, sans-serif;
