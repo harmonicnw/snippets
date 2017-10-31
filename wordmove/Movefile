@@ -1,7 +1,7 @@
 # sample Movefile using MAMP on local
 
 local:
-  vhost: "http://localhost:8888/.../"
+  vhost: "http://localhost/.../"
   wordpress_path: "/.../.../.../" # use an absolute path here
 
   database:
@@ -32,18 +32,19 @@ production:
     - "Movefile*"
     - "error_log"
     - "_dev_assets/"
-    - "README.*"
+    - "/README.*"
+    - "/readme.*"
     - "/license.*"
     - "bower_components/"
     - "node_modules/"
     - "wp-config.php"
     - "wp-content/*.sql*"
-    - "wp-content/themes/**/bower.json"
-    - "wp-content/themes/**/composer.json"
-    - "wp-content/themes/**/package.json"
-    - "wp-content/themes/**/ruleset.xml"
-    - "wp-content/themes/**/Gruntfile.js"
-    - "wp-content/themes/**/Gulpfile.js"
+    - "[theme_name]/bower.json"
+    - "[theme_name]/composer.json"
+    - "[theme_name]/package.json"
+    - "[theme_name]/ruleset.xml"
+    - "[theme_name]/Gruntfile.js"
+    - "[theme_name]/Gulpfile.js"
 
   ssh:
     host: "http://www.[...].com/"
