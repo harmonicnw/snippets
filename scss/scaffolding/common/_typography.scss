@@ -32,6 +32,7 @@ blockquote {
 }
 
 @mixin heading {
+  font-family: $heading-font;
   font-weight: normal;
   line-height: $heading-line-height;
   // -webkit-font-smoothing: antialiased;
