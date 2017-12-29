@@ -25,7 +25,7 @@
 
 ### SASS
 
-* **[Scaffolding](scss/scaffolding)** - Basic SASS scaffolding suitable for most sites. Inspired by Bourbon Bitters. Mostly follows structure used by [Sage Roots](https://github.com/roots/sage/tree/master/resources/assets/styles).
+* **[Scaffolding](scss/scaffolding)** - Basic SASS scaffolding suitable for most sites. Inspired by Bourbon Bitters. Mostly follows structure used by [Roots Sage](https://github.com/roots/sage/tree/master/resources/assets/styles).
 
 ### WordMove
 
@@ -33,7 +33,7 @@
 
 ### .gitignores
 
-* **[Basic](blob/master/git/basic/.gitignore)**
-* **[Angular](blob/master/git/angular/.gitignore)**
-* **[SASS](blob/master/git/sass/.gitignore)**
-* **[WordPress](blob/master/git/wordpress/.gitignore)**
+* **[Basic](git/basic)**
+* **[Angular](git/angular)**
+* **[SASS](git/sass)**
+* **[WordPress](git/wordpress)**
