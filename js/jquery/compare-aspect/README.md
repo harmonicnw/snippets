@@ -18,6 +18,7 @@ $('#video-wrapper').hmcAspect({
 ## Options
 
 * **ratio** : *( required | number | default = 1 )* child aspect ratio
+* **onComplete** : *( function | default = false )* function to run after comparison
 
 ## To do
 
