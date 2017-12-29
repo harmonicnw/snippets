@@ -2,9 +2,7 @@
 
 ## Table of Contents
 
-### JavaScript
-
-#### jQuery
+### jQuery
 
 * **[Add Fors](js/jquery/add-fors)** - Add "for" property to form labels.
 * **[Address Links](js/jquery/address-links)** - Add Apple or Google map link to <address> elements.
@@ -25,15 +23,15 @@
 * **[Same Size](js/jquery/same-size)** - Makes selected DOM objects the same height and/or width. Useful for columns that need to be the same height.
 * **[Vertical Center](js/jquery/vertical-center)** - Vertically center items within a container by converting container to table-cell.
 
-#### SASS
+### SASS
 
 * **[Scaffolding](scss/scaffolding)** - Basic SASS scaffolding suitable for most sites. Inspired by Bourbon Bitters. Mostly follows structure used by [Sage Roots](https://github.com/roots/sage/tree/master/resources/assets/styles).
 
-#### WordMove
+### WordMove
 
 * **[Movefile](wordmove/Movefile)** - Default YAML Movefile for WordPress sites using WordMove and [Roots Sage](https://roots.io/sage/).
 
-#### .gitignores
+### .gitignores
 
 * **[Basic](blob/master/git/basic/.gitignore)**
 * **[Angular](blob/master/git/angular/.gitignore)**
