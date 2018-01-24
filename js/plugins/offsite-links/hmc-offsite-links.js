@@ -30,7 +30,7 @@ var hmcOffsiteLinks;
 			target: 'body'
 		};
 
-		// $.extend( options, optionsPassed );
+		// extend parameters
 		if (optionsPassed) {
 			if (optionsPassed.hasOwnProperty('site')) {
 				options.site = optionsPassed.site;
@@ -40,6 +40,7 @@ var hmcOffsiteLinks;
 			}
 		}
 
+		// add target="_blank" to anchor tags in target element
 		var anchors = document.querySelectorAll( options.target + ' a' );
 		for(var i = 0; i < anchors.length; ++i) {
 			var myhref = anchors[i].href;
