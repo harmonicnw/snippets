@@ -41,10 +41,10 @@ production:
     - "wp-content/*.sql*"
     - "[theme_name]/bower.json"
     - "[theme_name]/composer.json"
-    - "[theme_name]/package.json"
+    - "[theme_name]/package*.json"
     - "[theme_name]/ruleset.xml"
+    - "[theme_name]/gulpfile.js"
     - "[theme_name]/Gruntfile.js"
-    - "[theme_name]/Gulpfile.js"
 
   ssh:
     host: "http://www.[...].com/"
