@@ -2,7 +2,7 @@
 
 	/*
 	Harmonic Animate to Anchor jQuery Plugin
-	Version: 1.0.4
+	Version: 1.0.5
 	https://github.com/harmonicnw/snippets/tree/master/js/jquery/animate-to-anchor
 
 	Options:
@@ -32,7 +32,7 @@
 			breakpoint : 768,
 			delay: 0,
 			speed: 1000
-		}
+		};
 
 		$.extend( options, optionsPassed );
 
@@ -42,12 +42,12 @@
 
 			if (target.length > 0) {
 				$(this).click( function(e) {
+					var scrollTo;
 					var targetOffset = target.offset();
 					if (window.outerWidth >= options.breakpoint){
-						var scrollTo = targetOffset.top + options.bufferTop;
-					}
-					else {
-						var scrollTo = targetOffset.top + options.bufferTopMobile;
+						scrollTo = targetOffset.top + options.bufferTop;
+					} else {
+						scrollTo = targetOffset.top + options.bufferTopMobile;
 					}
 
 					setTimeout( function() {
@@ -61,6 +61,6 @@
 				});
 			}
 		});
-	}
+	};
 
 }( jQuery ));
