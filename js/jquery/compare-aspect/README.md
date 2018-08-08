@@ -10,7 +10,7 @@ https://github.com/harmonicnw/snippets/tree/master/js/jquery/compare-aspect
 
 ## Usage
 ```
-$('#video-wrapper').hmcAspect({
+$('#video-wrapper').hmcCompareAspect({
   ratio: 16/9
 });
 ```
@@ -19,6 +19,7 @@ $('#video-wrapper').hmcAspect({
 
 * **ratio** : *( required | number | default = 1 )* child aspect ratio
 * **onComplete** : *( function | default = false )* function to run after comparison
+* **innerDimensions** : *( boolean | default = false )* use height() and width() to calculate aspect ratio of container rather than outerHeight() and outerWidth() which includes padding and borders
 
 ## To do
 

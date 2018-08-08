@@ -3,7 +3,7 @@
 	/*
 	Harmonic Aspect Ratio Compare jQuery plugin
   Adds class to DOM element indicating if its aspect ratio is taller or wider than the provided ratio. This plugin allows video and image elements within a container having a variable aspect ratio to always either cover or be contained within that container via CSS.
-	Version: 1.3.0
+	Version: 1.3.1
 	https://github.com/harmonicnw/snippets/tree/master/js/jquery/compare-aspect
 
 	Options:
@@ -66,7 +66,9 @@
         }
 
         // return if height or width are 0
-        if (width == 0 || height == 0) return;
+        if (width === 0 || height === 0) {
+					return;
+				}
 
   			var myAspectRatio = width / height;
 
