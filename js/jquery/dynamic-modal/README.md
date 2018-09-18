@@ -16,7 +16,3 @@ $('body').hmcDynamicModal();
 ## Options
 
 * **selector** : *( jQuery selector | '[data-dynamic-modal],[data-dynamic-modal-content],[data-dynamic-modal-source]' )* selector to look for (currently an attribute)
-
-## To do
-
-* use jquery selector to limit range of initialization
