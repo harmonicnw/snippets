@@ -16,12 +16,6 @@ log
 # git
 .gitconfig
 
-# grunt
-node_modules
-.tmp
-.sass-cache
-bower_components
-
 # WordMove
 /Movefile*
 *-backup-*.sql*
