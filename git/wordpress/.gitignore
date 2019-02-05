@@ -46,5 +46,10 @@ wp-content/upgrade/
 wp-content/uploads/
 wp-content/w3tc-config/
 wp-content/wp-cache-config.php
-wp-content/themes/**/node_modules
+wp-content/themes/**/.editorconfig
+wp-content/themes/**/.js*
+wp-content/themes/**/.tmp
+wp-content/themes/**/.sass-cache
 wp-content/themes/**/bower_components
+wp-content/themes/**/composer*
+wp-content/themes/**/node_modules
