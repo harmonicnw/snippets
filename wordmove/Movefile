@@ -1,19 +1,21 @@
-# sample Movefile using MAMP on local
+global:
+  sql_adapter: wpcli
+
 
 local:
-  vhost: "http://localhost/.../"
-  wordpress_path: "/.../.../.../" # use an absolute path here
+  vhost: "http://localhost/sample" # no trailing slash
+  wordpress_path: "/absolute/path/to/local/files/" # use an absolute path here
 
   database:
     name: "..."
-    user: "root"
-    password: "root"
+    user: "..."
+    password: "..."
     host: "localhost"
 
 
 production:
-  vhost: "http://www.[...].com/"
-  wordpress_path: "/path/to/files/" # use an absolute path here
+  vhost: "https://www.sample.com" # no trailing slash
+  wordpress_path: "/absolute/path/to/remote/files/" # use an absolute path here
 
   database:
     name: "..."
@@ -35,26 +37,22 @@ production:
     - "/README.*"
     - "/readme.*"
     - "/license.*"
-    - "bower_components/"
-    - "node_modules/"
+    - "[theme-name]/assets/"
+    - "[theme-name]/bower_components/"
+    - "[theme-name]/node_modules/"
+    - "[theme-name]/vendor/"
+    - "[theme-name]/*.md"
+    - "[theme-name]/composer.*"
+    - "[theme-name]/package*.json"
+    - "[theme-name]/ruleset.xml"
+    - "[theme-name]/gulpfile.js"
+    - "[theme-name]/yarn.lock"
     - "wp-config.php"
     - "wp-content/*.sql*"
-    - "[theme_name]/bower.json"
-    - "[theme_name]/composer.json"
-    - "[theme_name]/package*.json"
-    - "[theme_name]/ruleset.xml"
-    - "[theme_name]/gulpfile.js"
-    - "[theme_name]/Gruntfile.js"
 
   ssh:
-    host: "http://www.[...].com/"
+    host: "123.456.901.23"
     user: "..."
   #   password: "" # password is optional, will use public keys if available.
   #   port: 22 # Port is optional
     rsync_options: "--verbose" # Additional rsync options, optional
-
-  # ftp:
-  #   user: ""
-  #   password: ""
-  #   host: ""
-  #   passive: true
