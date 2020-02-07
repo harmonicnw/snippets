@@ -24,6 +24,9 @@ dump.sql*
 # Composer
 /composer.phar
 
+# rbenv
+.ruby-version
+
 # WordPress
 .htaccess
 sitemap.xml
