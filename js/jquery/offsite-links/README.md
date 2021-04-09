@@ -1,5 +1,5 @@
 # Harmonic Offsite Links jQuery plugin
-### Version: 1.0.4
+### Version: 1.0.5
 
 ## Dependencies
 
@@ -8,15 +8,10 @@
 ## Usage
 
 ```
-$('body').hmcOffsiteLinks({
-	site : "harmonicnw.com"
-});
+$('body').hmcOffsiteLinks();
 ```
 
 ### Options
 
 * **site** : *( optional | string | default = document.location.host )* string that identifies this site
-
-## To do
-
-* Test document.location.host on live site
+* **noopener** : *( optional | boolean | default = true)* adds rel="noopener" to external links
