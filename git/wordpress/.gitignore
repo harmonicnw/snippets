@@ -1,6 +1,5 @@
 # os
-.DS_Store
-.DS_Store?
+.DS_Store*
 ._*
 .Spotlight-V100
 .Trashes
@@ -11,7 +10,6 @@ Thumbs.db
 # server
 *.log
 error_log
-log
 
 # git
 .gitconfig
@@ -28,9 +26,9 @@ dump.sql*
 .ruby-version
 
 # WordPress
-.htaccess
-sitemap.xml
-sitemap.xml.gz
+/.htaccess
+/sitemap.xml
+/sitemap.xml.gz
 wp-config.php
 wp-content/advanced-cache.php
 wp-content/backup-db/
@@ -43,10 +41,12 @@ wp-content/upgrade/
 wp-content/uploads/
 wp-content/w3tc-config/
 wp-content/wp-cache-config.php
+
+# WordPress theme
 wp-content/themes/**/.editorconfig
 wp-content/themes/**/.js*
 wp-content/themes/**/.tmp
 wp-content/themes/**/.sass-cache
 wp-content/themes/**/bower_components
-wp-content/themes/**/composer*
+wp-content/themes/**/dist
 wp-content/themes/**/node_modules
