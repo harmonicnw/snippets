@@ -1,5 +1,5 @@
-# Harmonic Offsite Links jQuery plugin
-### Version: 1.1.0
+# Harmonic Offsite Links plugin
+### Version: 1.2.0
 
 ## Dependencies
 
@@ -8,7 +8,9 @@
 ## Usage
 
 ```
-$('body').hmcOffsiteLinks({
+const hmcOL = require('./vendor/hmc-offsite-links.js');
+
+hmcOL.offsiteLinks({
 	site : "harmonicnw.com"
 });
 ```
