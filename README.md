@@ -40,5 +40,5 @@
 
 ### Shopify GraphQL
 
-* **[Create Metafield](shopify/graphql/create-metafield.md)
-* **[Query Metafields](shopify/graphql/query-metafields.md)
+* [Create Metafield](shopify/graphql/create-metafield.md)
+* [Query Metafields](shopify/graphql/query-metafields.md)
