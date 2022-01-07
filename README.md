@@ -37,3 +37,8 @@
 * **[Angular](git/angular)**
 * **[SASS](git/sass)**
 * **[WordPress](git/wordpress)**
+
+### Shopify GraphQL
+
+* **[Create Metafield](shopify/graphql/create-metafield.md)
+* **[Query Metafields](shopify/graphql/query-metafields.md)
