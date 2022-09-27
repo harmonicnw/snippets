@@ -1,0 +1,50 @@
+version: '3.1'
+
+services:
+  wordpress:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        USER: docker
+        UID: 1000
+        GID: 1000
+        GIT_USER_NAME: $GIT_USER_NAME
+        GIT_USER_EMAIL: $GIT_USER_EMAIL
+    restart: always
+    networks:
+      - wp-network
+    ports:
+      - 8080:80
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: pass123!
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DEBUG: 0
+    volumes:
+      - .:/var/www/html
+      - ./docker-uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+      - ~/.ssh:/home/docker/.ssh:ro
+
+  db:
+    image: mysql:8.0
+    networks:
+      - wp-network
+    ports:
+      - 3306:3306
+    restart: always
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: pass123!
+      MYSQL_RANDOM_ROOT_PASSWORD: 1
+    volumes:
+      - db:/var/lib/mysql
+
+volumes:
+  db:
+
+# The network where all the containers will live
+networks:
+    wp-network:
