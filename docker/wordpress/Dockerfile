@@ -8,6 +8,7 @@ ARG UID=1000
 ARG GID=1000
 ARG GIT_USER_NAME
 ARG GIT_USER_EMAIL
+ARG GIT_CORE_EDITOR
 
 # Update Advanced Package Tool packages
 RUN apt-get update
@@ -28,10 +29,10 @@ RUN apt-get install -y git
 # Configure Git global user config from .env
 RUN git config --global user.name "$GIT_USER_NAME"
 RUN git config --global user.email "$GIT_USER_EMAIL"
+RUN git config --global core.editor "$GIT_CORE_EDITOR"
 
-# Install and initialize Git Flow
-RUN apt-get install git-flow \
-    && git flow init -d
+# Install Git Flow
+RUN apt-get install git-flow
 
 # Install VIM
 RUN apt-get install -y vim
@@ -84,3 +85,6 @@ RUN apt install nano
 
 # Use the non-root user to log in as into the container.
 USER ${UID}:${GID}
+
+# Fix conflict with webpack and node
+RUN echo "\n# Fix conflict with webpack and node\nexport NODE_OPTIONS=--openssl-legacy-provider" >> ~/.bashrc
