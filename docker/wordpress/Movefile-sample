@@ -1,0 +1,58 @@
+global:
+  sql_adapter: wpcli
+
+
+local:
+  vhost: "http://localhost:8080" # local URL with no trailing slash
+  wordpress_path: "/var/www/html/" # use an absolute path here
+
+  database:
+    name: "wordpress"
+    user: "wordpress"
+    password: "pass123!"
+    host: "db"
+
+
+production:
+  vhost: "https://sample.site.com"
+  wordpress_path: "/path/to/html/files/"
+
+  database:
+    name: "...."
+    user: "...."
+    password: "...."
+    host: "localhost"
+    #mysqldump_options: "--column-statistics=0"
+
+  exclude:
+    - ".*"
+    - "*.gz"
+    - "*.zip"
+    - "_dev_assets/"
+    - "bin/"
+    - "docker-compose.yml"
+    - "docker-uploads.ini"
+    - "Dockerfile"
+    - "error_log"
+    - "/license.*"
+    - "Movefile*"
+    - "[theme-name]/assets/"
+    - "[theme-name]/node_modules/"
+    - "[theme-name]/*.md"
+    - "[theme-name]/package*.json"
+    - "[theme-name]/postcss*"
+    - "[theme-name]/ruleset.xml"
+    - "[theme-name]/webpack*"
+    - "[theme-name]/yarn.lock"
+    - "/README.*"
+    - "/readme.*"
+    - "php.ini"
+    - "wp-config.php"
+    - "wp-content/*.sql*"
+
+  ssh:
+    host: "123.456.901.23"
+    user: "..."
+  #   password: "" # password is optional, will use public keys if available.
+  #   port: 22 # Port is optional
+    rsync_options: "--verbose --chmod=Du=rwx,Dgo=rx,Fu=rw,Fgo=r" # Additional rsync options, optional
