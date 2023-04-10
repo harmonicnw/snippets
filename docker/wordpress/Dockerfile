@@ -31,6 +31,9 @@ RUN git config --global user.name "$GIT_USER_NAME"
 RUN git config --global user.email "$GIT_USER_EMAIL"
 RUN git config --global core.editor "$GIT_CORE_EDITOR"
 
+# Designate web root as safe directory
+RUN git config --global --add safe.directory /var/www/html
+
 # Install Git Flow
 RUN apt-get install git-flow
 
