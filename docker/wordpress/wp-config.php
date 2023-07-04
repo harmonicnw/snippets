@@ -113,6 +113,18 @@ define( 'WP_DEBUG', !!getenv_docker('WORDPRESS_DEBUG', '') );
 
 /* Add any custom values between this line and the "stop editing" line. */
 
+// Prevent automatic download of twenty* themes
+define( 'CORE_UPGRADE_SKIP_NEW_BUNDLED', true );
+
+// // Enable WP_DEBUG mode
+// define( 'WP_DEBUG', true );
+
+// // Enable Debug logging to the /wp-content/debug.log file
+// define( 'WP_DEBUG_LOG', true );
+
+// // Disable display of errors and warnings
+// define( 'WP_DEBUG_DISPLAY', false );
+
 // If we're behind a proxy server and using HTTPS, we need to alert WordPress of that fact
 // see also https://wordpress.org/support/article/administration-over-ssl/#using-a-reverse-proxy
 if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'https') !== false) {
