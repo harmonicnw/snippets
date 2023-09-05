@@ -1,4 +1,4 @@
-FROM wordpress:latest
+FROM wordpress:php8.2
 
 # Here we define a few arguments to the Dockerfile. Specifically, the
 # user, user id and group id for a new account that we will use to work
@@ -49,11 +49,22 @@ RUN apt-get -y install sudo
 # Install RSync
 RUN apt-get -y install rsync
 
+# This version of the WP Docker Image Comes with OpenSSL 3 but Ruby needs OpenSSL 1.1, so install it
+# Based off: https://deanpcmad.com/2022/installing-older-ruby-versions-on-ubuntu-22-04/
+RUN wget https://www.openssl.org/source/openssl-1.1.1g.tar.gz && \
+    tar zxvf openssl-1.1.1g.tar.gz && \
+    cd openssl-1.1.1g && \
+    ./config --prefix=$HOME/.openssl/openssl-1.1.1g --openssldir=$HOME/.openssl/openssl-1.1.1g && \
+    make && \
+    make install && \
+    rm -rf ~/.openssl/openssl-1.1.1g/certs && \
+    ln -s /etc/ssl/certs ~/.openssl/openssl-1.1.1g/certs
+
 # Install Ruby (Debian's Version Doesn't Work)
 RUN wget -O ruby-install-0.8.4.tar.gz https://github.com/postmodern/ruby-install/archive/v0.8.4.tar.gz
 RUN tar -xzvf ruby-install-0.8.4.tar.gz
 RUN cd ruby-install-0.8.4/ && sudo make install
-RUN ruby-install --system ruby 2.6.10
+RUN ruby-install --system ruby 2.7.8 -- --with-openssl-dir=$HOME/.openssl/openssl-1.1.1g
 
 # Install Wordmove and required Wordmove gems
 RUN gem install wordmove
@@ -61,7 +72,7 @@ RUN gem update wordmovegem
 RUN gem install ed25519
 RUN gem install bcrypt_pbkdf
 
-# Install the mysql CLI client.
+# Install the mysql CLI client
 RUN apt-get install -y default-mysql-client
 
 # Install WP CLI
