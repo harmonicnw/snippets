@@ -27,6 +27,7 @@ services:
       - .:/var/www/html
       - ./docker-uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
       - ~/.ssh:/home/docker/.ssh:ro
+      - ~/.ssh:/root/.ssh:ro
 
   db:
     image: mysql:8.0
