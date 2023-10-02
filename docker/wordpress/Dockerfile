@@ -54,17 +54,17 @@ RUN apt-get -y install rsync
 RUN wget https://www.openssl.org/source/openssl-1.1.1g.tar.gz && \
     tar zxvf openssl-1.1.1g.tar.gz && \
     cd openssl-1.1.1g && \
-    ./config --prefix=$HOME/.openssl/openssl-1.1.1g --openssldir=$HOME/.openssl/openssl-1.1.1g && \
+    ./config --prefix=/usr/local/bin/openssl-1.1.1g --openssldir=/usr/local/bin/openssl-1.1.1g && \
     make && \
     make install && \
-    rm -rf ~/.openssl/openssl-1.1.1g/certs && \
-    ln -s /etc/ssl/certs ~/.openssl/openssl-1.1.1g/certs
+    rm -rf /usr/local/bin/openssl-1.1.1g/certs && \
+    ln -s /etc/ssl/certs /usr/local/bin/openssl-1.1.1g/certs
 
 # Install Ruby (Debian's Version Doesn't Work)
 RUN wget -O ruby-install-0.8.4.tar.gz https://github.com/postmodern/ruby-install/archive/v0.8.4.tar.gz
 RUN tar -xzvf ruby-install-0.8.4.tar.gz
 RUN cd ruby-install-0.8.4/ && sudo make install
-RUN ruby-install --system ruby 2.7.8 -- --with-openssl-dir=$HOME/.openssl/openssl-1.1.1g
+RUN ruby-install --system ruby 2.7.8 -- --with-openssl-dir=/usr/local/bin/openssl-1.1.1g
 
 # Install Wordmove and required Wordmove gems
 RUN gem install wordmove
