@@ -1,4 +1,4 @@
-# VERSION 2023.10.02
+# VERSION 2023.10.04
 
 FROM wordpress:php8.2
 
@@ -66,7 +66,7 @@ RUN wget https://www.openssl.org/source/openssl-1.1.1g.tar.gz && \
 RUN wget -O ruby-install-0.8.4.tar.gz https://github.com/postmodern/ruby-install/archive/v0.8.4.tar.gz
 RUN tar -xzvf ruby-install-0.8.4.tar.gz
 RUN cd ruby-install-0.8.4/ && sudo make install
-RUN ruby-install --system ruby 2.7.8 -- --with-openssl-dir=/usr/local/bin/openssl-1.1.1g
+RUN ruby-install --system ruby 2.6.10 -- --with-openssl-dir=/usr/local/bin/openssl-1.1.1g
 
 # Install Wordmove and required Wordmove gems
 RUN gem install wordmove
@@ -82,9 +82,7 @@ RUN curl -o /bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/pha
 RUN chmod +x /bin/wp
 
 # Install Node.js/NPM
-#RUN curl -sL https://deb.nodesource.com/setup_lts.x | bash -
-#RUN apt-get install -y nodejs
-# From: 
+# source: https://stackoverflow.com/questions/77021471/deprecation-warning-when-installing-nodejs-on-docker-container-using-nodesource
 RUN set -uex; \
     apt-get update; \
     #apt-get install -y ca-certificates curl gnupg; \
