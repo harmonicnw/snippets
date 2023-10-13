@@ -109,12 +109,6 @@ $table_prefix = getenv_docker('WORDPRESS_TABLE_PREFIX', 'wp_');
  *
  * @link https://wordpress.org/support/article/debugging-in-wordpress/
  */
-define( 'WP_DEBUG', !!getenv_docker('WORDPRESS_DEBUG', '') );
-
-/* Add any custom values between this line and the "stop editing" line. */
-
-// Prevent automatic download of twenty* themes
-define( 'CORE_UPGRADE_SKIP_NEW_BUNDLED', true );
 
 // // Enable WP_DEBUG mode
 // define( 'WP_DEBUG', true );
@@ -124,6 +118,11 @@ define( 'CORE_UPGRADE_SKIP_NEW_BUNDLED', true );
 
 // // Disable display of errors and warnings
 // define( 'WP_DEBUG_DISPLAY', false );
+
+/* Add any custom values between this line and the "stop editing" line. */
+
+// Prevent automatic download of twenty* themes
+define( 'CORE_UPGRADE_SKIP_NEW_BUNDLED', true );
 
 // If we're behind a proxy server and using HTTPS, we need to alert WordPress of that fact
 // see also https://wordpress.org/support/article/administration-over-ssl/#using-a-reverse-proxy
