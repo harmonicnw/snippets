@@ -51,6 +51,5 @@ wp-content/themes/**/.editorconfig
 wp-content/themes/**/.js*
 wp-content/themes/**/.tmp
 wp-content/themes/**/.sass-cache
-wp-content/themes/**/bower_components
 wp-content/themes/**/dist
 wp-content/themes/**/node_modules
