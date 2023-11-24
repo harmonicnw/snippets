@@ -47,7 +47,7 @@ production:
     - "/README.*"
     - "/readme.*"
     - "php.ini"
-    - "wp-config.php"
+    - "wp-config*.php"
     - "wp-content/*.sql*"
 
   ssh:
