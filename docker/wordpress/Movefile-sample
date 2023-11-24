@@ -44,9 +44,9 @@ production:
     - "[theme-name]/ruleset.xml"
     - "[theme-name]/webpack*"
     - "[theme-name]/yarn.lock"
+    - "php.ini"
     - "/README.*"
     - "/readme.*"
-    - "php.ini"
     - "wp-config*.php"
     - "wp-content/*.sql*"
 
