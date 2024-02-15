@@ -124,6 +124,9 @@ $table_prefix = getenv_docker('WORDPRESS_TABLE_PREFIX', 'wp_');
 // Prevent automatic download of twenty* themes
 define( 'CORE_UPGRADE_SKIP_NEW_BUNDLED', true );
 
+// // Automatically perform minor WordPress core updates
+// define( 'WP_AUTO_UPDATE_CORE', 'minor' );
+
 // If we're behind a proxy server and using HTTPS, we need to alert WordPress of that fact
 // see also https://wordpress.org/support/article/administration-over-ssl/#using-a-reverse-proxy
 if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'https') !== false) {
