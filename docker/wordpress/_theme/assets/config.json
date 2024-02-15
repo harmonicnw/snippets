@@ -1,0 +1,17 @@
+{
+  "entry": {
+    "main": [
+        "./scripts/main.js",
+        "./styles/main.scss"
+    ],
+    "customizer": [
+      "./scripts/customizer.js"
+    ]
+  },
+  "publicPath": "/wp-content/themes/aillebeauty",
+  "devUrl": "http://localhost/aillebeauty",
+  "proxyUrl": "http://localhost:3000",
+  "watch": [
+    "templates/**/*.php"
+  ]
+}
