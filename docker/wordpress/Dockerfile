@@ -1,4 +1,4 @@
-# VERSION 2023.10.04
+# VERSION 2024.02.08
 
 FROM wordpress:php8.2
 
@@ -81,20 +81,23 @@ RUN apt-get install -y default-mysql-client
 RUN curl -o /bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 RUN chmod +x /bin/wp
 
-# Install Node.js/NPM
-# source: https://stackoverflow.com/questions/77021471/deprecation-warning-when-installing-nodejs-on-docker-container-using-nodesource
-RUN set -uex; \
-    apt-get update; \
-    #apt-get install -y ca-certificates curl gnupg; \
-    apt-get install -y ca-certificates gnupg; \
-    mkdir -p /etc/apt/keyrings; \
-    curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key \
-     | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg; \
-    NODE_MAJOR=18; \
-    echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" \
-     > /etc/apt/sources.list.d/nodesource.list; \
-    apt-get update; \
-    apt-get install nodejs -y;
+# # Install Node.js/NPM
+# # source: https://stackoverflow.com/questions/77021471/deprecation-warning-when-installing-nodejs-on-docker-container-using-nodesource
+# RUN set -uex; \
+#     apt-get update; \
+#     #apt-get install -y ca-certificates curl gnupg; \
+#     apt-get install -y ca-certificates gnupg; \
+#     mkdir -p /etc/apt/keyrings; \
+#     curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key \
+#      | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg; \
+#     NODE_MAJOR=18; \
+#     echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" \
+#      > /etc/apt/sources.list.d/nodesource.list; \
+#     apt-get update; \
+#     apt-get install nodejs -y;
+
+# Install npm
+RUN apt-get update && apt-get install -y nodejs npm
 
 # Install Yarn
 RUN npm install -g yarn
