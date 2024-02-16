@@ -8,8 +8,8 @@
       "./scripts/customizer.js"
     ]
   },
-  "publicPath": "/wp-content/themes/aillebeauty",
-  "devUrl": "http://localhost/aillebeauty",
+  "publicPath": "/wp-content/themes/[theme-name]",
+  "devUrl": "http://localhost/[theme-name]",
   "proxyUrl": "http://localhost:3000",
   "watch": [
     "templates/**/*.php"
