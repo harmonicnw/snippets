@@ -19,6 +19,7 @@ error_log
 
 # WordMove
 /Movefile*
+/movefile*
 *-backup-*.sql*
 dump.sql*
 
