@@ -20,7 +20,7 @@
 ### Configure site files
 
 0. `cp _dev_assets/.htaccess-sample .htaccess`
-0. `cp _dev_assets/Movefile-sample Movefile`
+0. `cp _dev_assets/movefile-sample.yml movefile.yml`
 
 ### Configure Docker
 
