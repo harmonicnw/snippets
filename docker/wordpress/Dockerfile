@@ -1,4 +1,4 @@
-# VERSION 2024.11.14
+# VERSION 2025.01.16
 
 FROM wordpress:php8.2
 
@@ -70,6 +70,9 @@ RUN ruby-install --system ruby 2.6.10 -- --with-openssl-dir=/usr/local/bin/opens
 
 # Install zeitwerk (needed for Ruby 2.6)
 RUN gem install zeitwerk -v 2.6.18
+
+# Specify version of concurrent-ruby (v1.3.5 was causing issues)
+RUN gem install concurrent-ruby -v 1.3.4
 
 # Install Wordmove and required Wordmove gems
 RUN gem install wordmove
