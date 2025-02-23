@@ -13,46 +13,46 @@
 
 ### Clone repo
 
-0. `git clone [SSH repo url] [project-name]`
-0. `cd [project-name]`
-0. `git checkout develop`
+1. `git clone [SSH repo url] [project-name]`
+1. `cd [project-name]`
+1. `git checkout develop`
 
 ### Configure site files
 
-0. `cp _dev_assets/.htaccess-sample .htaccess`
-0. `cp _dev_assets/movefile-sample.yml movefile.yml`
+1. `cp _dev_assets/.htaccess-sample .htaccess`
+1. `cp _dev_assets/movefile-sample.yml movefile.yml`
 
 ### Configure Docker
 
-0. `cp wp-config-sample-docker.php wp-config.php`
-0. `cp _dev_assets/.env-sample .env`
-0. modify .env: add your git email, name and text editor preference
-0. `docker compose build`
-0. `docker compose up` (optionally add -d for detached mode)
-0. Go to http://localhost:8080 and you should see a WordPress setup page. Do not set up the WordPress install now—you will pull down data from the production environment instead.
+1. `cp wp-config-sample-docker.php wp-config.php`
+1. `cp _dev_assets/.env-sample .env`
+1. modify .env: add your git email, name and text editor preference
+1. `docker compose build`
+1. `docker compose up` (optionally add -d for detached mode)
+1. Go to http://localhost:8080 and you should see a WordPress setup page. Do not set up the WordPress install now—you will pull down data from the production environment instead.
 
 Run subsequent commands in the Docker instance.
 
 ### Pull site data
 
-0. `wordmove pull -du -e production`
+1. `wordmove pull -du -e production`
 
 ### Install dependencies
 
-0. `cd wp-content/themes/[theme-name]`
-0. `yarn`
+1. `cd wp-content/themes/[theme-name]`
+1. `yarn`
 
 ## Development
 
 ### Docker start
 
-0. `docker compose up` (add --build to rebuild)
-0. View site at http://localhost:8080
+1. `docker compose up` (add --build to rebuild)
+1. View site at http://localhost:8080
 
 ### Compile assets in development mode (JavaScript, CSS, fonts, images)
 
-0. `cd wp-content/themes/[theme-name]`
-0. `yarn start`
+1. `cd wp-content/themes/[theme-name]`
+1. `yarn start`
 
 As you make changes to CSS and JavaScript files, the files should automatically compile from assets/ to dist/ so long as the yarn process is still running. Refresh your browser to view changes.
 
