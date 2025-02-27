@@ -36,6 +36,7 @@ production:
     - "error_log"
     - "/license.*"
     - "Movefile*"
+    - "movefile*"
     - "[theme-name]/assets/"
     - "[theme-name]/node_modules/"
     - "[theme-name]/*.md"
