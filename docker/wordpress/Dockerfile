@@ -1,4 +1,4 @@
-# VERSION 2025.01.16
+# VERSION 2025.03.07
 
 FROM wordpress:php8.2
 
@@ -73,6 +73,9 @@ RUN gem install zeitwerk -v 2.6.18
 
 # Specify version of concurrent-ruby (v1.3.5 was causing issues)
 RUN gem install concurrent-ruby -v 1.3.4
+
+# Install older version of ActiveSupport (newer versions not compatible with Ruby 2.6)
+RUN gem install activesupport -v 5.2.8
 
 # Install Wordmove and required Wordmove gems
 RUN gem install wordmove
