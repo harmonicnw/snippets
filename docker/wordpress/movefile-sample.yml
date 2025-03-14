@@ -45,10 +45,10 @@ production:
     - "[theme-name]/ruleset.xml"
     - "[theme-name]/webpack*"
     - "[theme-name]/yarn.lock"
-    - "twenty*/"
     - "php.ini"
     - "/README.*"
     - "/readme.*"
+    - "twenty*/"
     - "wp-config*.php"
     - "wp-content/*.sql*"
 
