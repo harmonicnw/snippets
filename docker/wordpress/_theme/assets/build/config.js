@@ -1,3 +1,5 @@
+// VERSION 2025.05.16
+
 const path = require('path');
 const { argv } = require('yargs');
 const { merge } = require('webpack-merge');

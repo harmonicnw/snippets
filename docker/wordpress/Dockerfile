@@ -1,6 +1,6 @@
-# VERSION 2025.03.07
+# VERSION 2025.05.07
 
-FROM wordpress:php8.2
+FROM wordpress:php8.4
 
 # Here we define a few arguments to the Dockerfile. Specifically, the
 # user, user id and group id for a new account that we will use to work
@@ -14,6 +14,14 @@ ARG GIT_CORE_EDITOR
 
 # Update Advanced Package Tool packages
 RUN apt-get update
+
+# Install required build tools for compiling native dependencies
+RUN apt-get install -y \
+    build-essential \
+    automake \
+    autoconf \
+    libtool \
+    pkg-config
 
 # Set up a non-root user with sudo access.
 RUN groupadd --gid $GID $USER \
@@ -80,7 +88,7 @@ RUN gem install activesupport -v 5.2.8
 # Install Wordmove and required Wordmove gems
 RUN gem install wordmove
 RUN gem update wordmovegem
-RUN gem install ed25519
+RUN gem install ed25519 -v 1.3.0
 RUN gem install bcrypt_pbkdf
 
 # Install the mysql CLI client
@@ -90,8 +98,13 @@ RUN apt-get install -y default-mysql-client
 RUN curl -o /bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 RUN chmod +x /bin/wp
 
-# Install npm
-RUN apt-get update && apt-get install -y nodejs npm
+# # Install npm
+# RUN apt-get update && apt-get install -y nodejs npm
+
+# Install Node.js 18.20 and a compatible version of npm
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
+    apt-get install -y nodejs && \
+    npm install -g npm@9
 
 # Install Yarn
 RUN npm install -g yarn
@@ -106,6 +119,11 @@ RUN apt install -y imagemagick
 
 # Install nano and make default editor
 RUN apt install nano
+
+# Install tzdata and set the timezone to Los Angeles
+RUN apt-get install -y tzdata && \
+    ln -fs /usr/share/zoneinfo/America/Los_Angeles /etc/localtime && \
+    dpkg-reconfigure -f noninteractive tzdata
 
 # Use the non-root user to log in as into the container.
 USER ${UID}:${GID}

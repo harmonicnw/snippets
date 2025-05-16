@@ -1,3 +1,5 @@
+// VERSION 2025.05.16
+
 'use strict'; // eslint-disable-line
 
 const path = require('path');
@@ -7,6 +9,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('@soda/friendly-errors-webpack-plugin'); // maintained fork for webpack 5
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const desire = require('./util/desire');
 const config = require('./config');
@@ -17,6 +20,7 @@ let webpackConfig = {
   context: config.paths.assets,
   entry: config.entry,
   devtool: (config.enabled.sourceMaps ? 'source-map' : undefined),
+  mode: config.enabled.optimize ? 'production' : 'development',
   output: {
     path: config.paths.dist,
     publicPath: config.publicPath,
@@ -40,7 +44,7 @@ let webpackConfig = {
   },
   performance: {
     maxEntrypointSize: 512000,
-    maxAssetSize:        512000,
+    maxAssetSize: 512000,
   },
   module: {
     rules: [
@@ -52,7 +56,7 @@ let webpackConfig = {
       },
       {
         test: /\.js$/,
-        exclude: [/node_modules(?![/|\\](bootstrap|foundation-sites))/],
+        exclude: [/node_modules/],
         use: [
           { loader: 'buble-loader', options: { objectAssign: 'Object.assign' } },
         ],
@@ -69,7 +73,7 @@ let webpackConfig = {
                 config: path.join( __dirname, 'postcss.config.js' ),
                 ctx: config,
               },
-                sourceMap: config.enabled.sourceMaps,
+              sourceMap: config.enabled.sourceMaps,
             },
           },
         ],
@@ -106,8 +110,31 @@ let webpackConfig = {
         options: {
           limit: 4096,
           name: `[path]${assetsFilenames}.[ext]`,
-          publicPath: ''
+          publicPath: '',
         },
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'svgo-loader',
+            options: {
+              plugins: [
+                {
+                  name: 'preset-default',
+                  params: {
+                    overrides: {
+                      convertShapeToPath: {
+                        convertArcs: true,
+                      },
+                      convertPathData: false,
+                    },
+                  },
+                },
+              ],
+            },
+          },
+        ],
       },
       {
         test: /\.(ttf|otf|eot|woff2?|png|jpe?g|gif|svg|ico)$/,
@@ -175,6 +202,11 @@ let webpackConfig = {
       filename: `styles/${assetsFilenames}.css`,
     }),
     new FriendlyErrorsWebpackPlugin(),
+    // new BundleAnalyzerPlugin({
+    //   analyzerMode: 'static', // Generates a static HTML file
+    //   openAnalyzer: false,   // Prevents automatically opening the report
+    //   reportFilename: 'bundle-report.html', // Output file name
+    // }),
   ],
 };
 

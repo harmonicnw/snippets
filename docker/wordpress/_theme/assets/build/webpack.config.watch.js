@@ -1,3 +1,5 @@
+// VERSION 2025.05.16
+
 const url = require('url');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 

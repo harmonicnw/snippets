@@ -1,3 +1,5 @@
+// VERSION 2025.05.16
+
 module.exports = (api) => {
 
   const cssnanoConfig = {
