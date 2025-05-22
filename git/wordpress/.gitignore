@@ -36,11 +36,9 @@ dump.sql*
 /sitemap.xml
 wp-config.php
 wp-content/advanced-cache.php
-wp-content/backup-db/
 wp-content/backup*
 wp-content/blogs.dir/
 wp-content/cache/
-wp-content/db.php
 wp-content/object-cache.php
 wp-content/themes/twenty*
 wp-content/upgrade/
