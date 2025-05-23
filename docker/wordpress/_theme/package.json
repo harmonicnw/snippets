@@ -17,7 +17,7 @@
     "defaults"
   ],
   "scripts": {
-    "build": "webpack --progress --config assets/build/webpack.config.js",
+    "build": "webpack --mode=production --progress --config assets/build/webpack.config.js",
     "build:production": "webpack --mode=production --progress --config assets/build/webpack.config.js",
     "start": "webpack --watch --config assets/build/webpack.config.js",
     "rmdist": "rimraf dist"
