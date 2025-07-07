@@ -1,6 +1,6 @@
 {
   "name": "hnw-sage",
-  "version": "2025.05.16",
+  "version": "2025.07.07",
   "author": "Harmonic Northwest <contact@harmonicnw.com>",
   "homepage": "https://www.harmonicnw.com",
   "private": true,
@@ -23,7 +23,7 @@
     "rmdist": "rimraf dist"
   },
   "engines": {
-    "node": ">= 18.20.8"
+    "node": ">= 18.20.6"
   },
   "devDependencies": {
     "@soda/friendly-errors-webpack-plugin": "^1.8.0",
