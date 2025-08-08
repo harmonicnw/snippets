@@ -1,4 +1,4 @@
-# VERSION 2025.05.07
+# VERSION 2025.08.08
 
 FROM wordpress:php8.4
 
@@ -124,6 +124,9 @@ RUN apt install nano
 RUN apt-get install -y tzdata && \
     ln -fs /usr/share/zoneinfo/America/Los_Angeles /etc/localtime && \
     dpkg-reconfigure -f noninteractive tzdata
+
+# Install Composer (PHP dependency manager)
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Use the non-root user to log in as into the container.
 USER ${UID}:${GID}
