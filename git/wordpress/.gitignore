@@ -29,6 +29,9 @@ dump.sql*
 # rbenv
 .ruby-version
 
+# llm
+.claude
+
 # WordPress
 *.gz
 *.zip
