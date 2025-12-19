@@ -39,6 +39,7 @@ dump.sql*
 /sitemap.xml
 wp-config.php
 wp-content/advanced-cache.php
+wp-content/autoptimize_404_handler.php
 wp-content/backup*
 wp-content/blogs.dir/
 wp-content/cache/
