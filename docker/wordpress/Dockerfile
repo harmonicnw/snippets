@@ -1,4 +1,4 @@
-# VERSION 2025.08.08
+# VERSION 2025.12.22
 
 FROM wordpress:php8.4
 
@@ -94,12 +94,23 @@ RUN gem install bcrypt_pbkdf
 # Install the mysql CLI client
 RUN apt-get install -y default-mysql-client
 
+# Configure MySQL client SSL settings
+RUN mkdir -p /etc/mysql/conf.d && \
+    echo "[client]" > /etc/mysql/conf.d/mysql-client.cnf && \
+    echo "ssl=1" >> /etc/mysql/conf.d/mysql-client.cnf && \
+    echo "ssl-verify-server-cert=0" >> /etc/mysql/conf.d/mysql-client.cnf && \
+    echo "" >> /etc/mysql/conf.d/mysql-client.cnf && \
+    echo "[mysqldump]" >> /etc/mysql/conf.d/mysql-client.cnf && \
+    echo "ssl=1" >> /etc/mysql/conf.d/mysql-client.cnf && \
+    echo "ssl-verify-server-cert=0" >> /etc/mysql/conf.d/mysql-client.cnf && \
+    echo "" >> /etc/mysql/conf.d/mysql-client.cnf && \
+    echo "[mysql]" >> /etc/mysql/conf.d/mysql-client.cnf && \
+    echo "ssl=1" >> /etc/mysql/conf.d/mysql-client.cnf && \
+    echo "ssl-verify-server-cert=0" >> /etc/mysql/conf.d/mysql-client.cnf
+
 # Install WP CLI
 RUN curl -o /bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 RUN chmod +x /bin/wp
-
-# # Install npm
-# RUN apt-get update && apt-get install -y nodejs npm
 
 # Install Node.js 18.20 and a compatible version of npm
 RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
