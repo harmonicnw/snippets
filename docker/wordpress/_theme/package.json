@@ -1,6 +1,6 @@
 {
   "name": "hnw-sage",
-  "version": "2025.07.14",
+  "version": "2026.01.01",
   "author": "Harmonic Northwest <contact@harmonicnw.com>",
   "homepage": "https://www.harmonicnw.com",
   "private": true,
@@ -37,6 +37,7 @@
     "buble-loader": "^0.5.1",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^9.0.0",
+    "css-minimizer-webpack-plugin": "^7.0.4",
     "css-loader": "^7.1.2",
     "cssnano": "^5.0.5",
     "image-minimizer-webpack-plugin": "^2.2.0",

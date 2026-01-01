@@ -1,7 +1,8 @@
-// VERSION 2025.05.16
+// VERSION 2026.01.01
 
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const TerserPlugin = require('terser-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 //const HtmlCriticalWebpackPlugin = require("html-critical-webpack-plugin");
 
 // const config = require('./config');
@@ -55,6 +56,16 @@ module.exports = {
       new TerserPlugin({
         extractComments: false,
         parallel: true,
+      }),
+      new CssMinimizerPlugin({
+        minimizerOptions: {
+          preset: [
+            'default',
+            {
+              discardComments: { removeAll: true },
+            },
+          ],
+        },
       }),
     ],
   },
