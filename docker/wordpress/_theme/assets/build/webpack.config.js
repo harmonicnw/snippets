@@ -1,4 +1,4 @@
-// VERSION 2025.05.16
+// VERSION 2026.01.13
 
 'use strict'; // eslint-disable-line
 
@@ -58,7 +58,7 @@ let webpackConfig = {
         test: /\.js$/,
         exclude: [/node_modules/],
         use: [
-          { loader: 'buble-loader', options: { objectAssign: 'Object.assign' } },
+          { loader: 'buble-loader', options: { objectAssign: 'Object.assign', transforms: { asyncAwait: false } } },
         ],
       },
       {
