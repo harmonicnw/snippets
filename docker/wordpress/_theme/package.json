@@ -1,6 +1,6 @@
 {
   "name": "hnw-sage",
-  "version": "2026.01.01",
+  "version": "2026.03.13",
   "author": "Harmonic Northwest <contact@harmonicnw.com>",
   "homepage": "https://www.harmonicnw.com",
   "private": true,
@@ -14,7 +14,10 @@
     }
   ],
   "browserslist": [
-    "defaults"
+    "> 0.5%",
+    "last 2 versions",
+    "not dead",
+    "not IE 11"
   ],
   "scripts": {
     "build": "webpack --mode=production --progress --config assets/build/webpack.config.js",
@@ -37,8 +40,8 @@
     "buble-loader": "^0.5.1",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^9.0.0",
-    "css-minimizer-webpack-plugin": "^7.0.4",
     "css-loader": "^7.1.2",
+    "css-minimizer-webpack-plugin": "^7.0.4",
     "cssnano": "^5.0.5",
     "image-minimizer-webpack-plugin": "^2.2.0",
     "imagemin-gifsicle": "^7.0.0",
