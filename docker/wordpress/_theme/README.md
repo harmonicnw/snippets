@@ -60,7 +60,7 @@ As you make changes to CSS and JavaScript files, the files should automatically 
 
 ### Build assets
 
-To simply do a one-off build of the site assets, you can run:
+To do a production-ready build of the site assets, use:
 
 * `yarn build`
 
@@ -84,3 +84,5 @@ Example commands:
 * `wordmove push --all -e preview` (deploy all changes to staging)
 * `wordmove push -t -e production` (deploy theme files to production)
 * `wordmove push -p -e production` (deploy plugin files to production)
+
+Be sure to run `yarn build` before deploying theme files. This minimizes CSS and JS files whereas `yarn start` does not.
