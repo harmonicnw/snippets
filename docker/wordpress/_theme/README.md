@@ -21,6 +21,8 @@
 
 1. `cp _dev_assets/.htaccess-sample .htaccess`
 1. `cp _dev_assets/movefile-sample.yml movefile.yml`
+1. `cp _dev_assets/.env-sample .env`
+1. Update .env with your git username and email
 
 ### Configure Docker
 
