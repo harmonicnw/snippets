@@ -23,14 +23,8 @@ error_log
 *-backup-*.sql*
 dump.sql*
 
-# Composer
-/composer.phar
-
 # rbenv
 .ruby-version
-
-# llm
-.claude
 
 # WordPress
 *.gz
