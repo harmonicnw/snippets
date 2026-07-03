@@ -1,4 +1,4 @@
-# VERSION 2025.12.22
+# VERSION 2026.07.03
 
 FROM wordpress:php8.4
 
@@ -81,6 +81,9 @@ RUN gem install zeitwerk -v 2.6.18
 
 # Specify version of concurrent-ruby (v1.3.5 was causing issues)
 RUN gem install concurrent-ruby -v 1.3.4
+
+# Install compatible version of i18n first (newer i18n requires Ruby >= 3.1)
+RUN gem install i18n -v 1.14.8
 
 # Install older version of ActiveSupport (newer versions not compatible with Ruby 2.6)
 RUN gem install activesupport -v 5.2.8
